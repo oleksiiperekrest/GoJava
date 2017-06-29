@@ -80,4 +80,26 @@ public class Homework2 {
         return input.nextLine();
     }
 
+    private static void resultTable(String name, String hometown, int age, String hobby) {
+        System.out.println();
+        System.out.println("Name: " + name);
+        System.out.println("Hometown: " + hometown);
+        System.out.println("Age: " + age);
+        System.out.println("Hobby: " + hobby);
+    }
+
+    private static void resultText(String name, String hometown, int age, String hobby) {
+        System.out.println();
+        System.out.println("A person named " + name + " lives in " + hometown + "." +
+                "\nThis person is " + age + " years old and they like doing " + hobby + ".");
+    }
+
+    private static void resultOther(String name, String hometown, int age, String hobby) {
+        System.out.println();
+        System.out.println(name + " - name");
+        System.out.println(hometown + " - hometown");
+        System.out.println(age + " - age");
+        System.out.println(hobby + " - hobby");
+    }
+
 }
