@@ -39,6 +39,27 @@ public class Homework2 {
 
     }
 
+    private static int getAge() {
+        System.out.println("How old are you?");
+        return getIntInput();
+    }
+
+    private static String getName() {
+        System.out.println("What is your name?");
+        return getStringInput();
+    }
+
+    private static String getHometown() {
+        System.out.println("What is your hometown?");
+        return getStringInput();
+    }
+
+    private static String getHobby() {
+        System.out.println("What's your hobby?");
+        return getStringInput();
+    }
+
+
     private static int getIntInput() {
         Scanner input = new Scanner(System.in);
         while (!input.hasNextInt()) {
