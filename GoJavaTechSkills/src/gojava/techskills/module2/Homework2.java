@@ -37,6 +37,12 @@ public class Homework2 {
         String name, hometown, hobby;
         int age = 0;
 
+        name = getName();
+        hometown = getHometown();
+        age = getAge();
+        hobby = getHobby();
+
+
     }
 
     private static int getAge() {
