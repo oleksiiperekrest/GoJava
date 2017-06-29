@@ -35,12 +35,16 @@ public class Homework2 {
     public static void main(String[] args) {
 
         String name, hometown, hobby;
-        int age = 0;
+        int age;
 
         name = getName();
         hometown = getHometown();
         age = getAge();
         hobby = getHobby();
+
+        resultTable(name, hometown, age, hobby);
+        resultText(name, hometown, age, hobby);
+        resultOther(name, hometown, age, hobby);
 
 
     }
