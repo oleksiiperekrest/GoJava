@@ -1,4 +1,4 @@
-package Module1;
+package gojava.techskills.module1;
 
 /*
 1. Создать собственный репозиторий на GitHub
