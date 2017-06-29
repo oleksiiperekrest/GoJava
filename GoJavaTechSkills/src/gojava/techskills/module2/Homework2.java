@@ -46,7 +46,6 @@ public class Homework2 {
         resultText(name, hometown, age, hobby);
         resultOther(name, hometown, age, hobby);
 
-
     }
 
     private static int getAge() {
