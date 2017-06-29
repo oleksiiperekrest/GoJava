@@ -29,7 +29,7 @@ package gojava.techskills.module2;
 4. По ходу решения задачи, пушить изменения на GitHub
 5. Финальный рабочий код программы которая соответствует всем подпунктам пункта 3, залить на GitHub
  */
-
+import java.util.Scanner;
 public class Homework2 {
 
     public static void main(String[] args) {
@@ -38,4 +38,19 @@ public class Homework2 {
         int age = 0;
 
     }
+
+    private static int getIntInput() {
+        Scanner input = new Scanner(System.in);
+        while (!input.hasNextInt()) {
+            System.out.println("(Enter a whole number)");
+            input.next();
+        }
+        return input.nextInt();
+    }
+
+    private static String getStringInput() {
+        Scanner input = new Scanner(System.in);
+        return input.nextLine();
+    }
+
 }
