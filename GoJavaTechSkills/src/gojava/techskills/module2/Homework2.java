@@ -37,10 +37,10 @@ public class Homework2 {
         String name, hometown, hobby;
         int age;
 
-        name = getName();
-        hometown = getHometown();
+        name = firstLetterToUpperCase(getName());
+        hometown = firstLetterToUpperCase(getHometown());
         age = getAge();
-        hobby = getHobby();
+        hobby = firstLetterToUpperCase(getHobby());
 
         resultTable(name, hometown, age, hobby);
         resultText(name, hometown, age, hobby);
@@ -95,7 +95,7 @@ public class Homework2 {
     private static void resultText(String name, String hometown, int age, String hobby) {
         System.out.println();
         System.out.println("A person named " + name + " lives in " + hometown + "." +
-                "\nThis person is " + age + " years old and they like doing " + hobby + ".");
+                "\nThis person is " + age + " years old and they like doing " + firstLetterToLowerCase(hobby) + ".");
     }
 
     private static void resultOther(String name, String hometown, int age, String hobby) {
@@ -104,6 +104,19 @@ public class Homework2 {
         System.out.println(hometown + " - hometown");
         System.out.println(age + " - age");
         System.out.println(hobby + " - hobby");
+    }
+
+
+    private static String firstLetterToLowerCase(String s) {
+        char c[] = s.toCharArray();
+        c[0] = Character.toLowerCase(c[0]);
+        return new String(c);
+    }
+
+    private static String firstLetterToUpperCase(String s) {
+        char c[] = s.toCharArray();
+        c[0] = Character.toUpperCase(c[0]);
+        return new String(c);
     }
 
 }
