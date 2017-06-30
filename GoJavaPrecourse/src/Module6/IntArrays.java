@@ -109,8 +109,7 @@ public class IntArrays {
         array[b] = temp;
     }
 
-    public static int[] sortSelection (int[] a) {
-        int[] array = a.clone();
+    public static int[] sortSelection (int[] array) {
         for (int min = 0; min < array.length - 1; min++) {
             int least = min;
 
@@ -124,8 +123,7 @@ public class IntArrays {
         return array;
     }
 
-    public static int[] sortBubble (int[] a) {
-        int[] array = a.clone();
+    public static int[] sortBubble (int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - i; j++) {
                 if (array[j-1] > array[j]) {
