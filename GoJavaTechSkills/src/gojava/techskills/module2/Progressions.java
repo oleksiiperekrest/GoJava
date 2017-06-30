@@ -20,12 +20,7 @@ public class Progressions {
 
         System.out.println(Arrays.toString(array));
 
-        if (checkGeometricProgression(array)) System.out.println("Is Geometric progression!");
-        if (checkArithmeticProgression(array)) System.out.println("Is Arithmetic progression!");
-        if (checkArithmeticProgression(getStepsArray(array))) System.out.println("Is Second-order Arithmetic progresion!");
-        if (checkArithmeticProgression(getStepsArray(getStepsArray(array)))) System.out.println("Is Third-order Arithmetic progresion!");
-
-        System.out.println(Arrays.toString(getStepsArray(array)));
+        printProgressionType(checkProgressionType(array));
     }
 
     static int getArithmeticStep(int[] array) {
@@ -53,7 +48,7 @@ public class Progressions {
         else return 1;
     }
 
-    static boolean checkGeometricProgression(int[] array){
+    static boolean checkGeometricProgression(int[] array) {
         if (array.length < 2){
             System.out.println("Entered progression is too small for analysis");
             return false;
@@ -73,5 +68,34 @@ public class Progressions {
             stepsArray[i] = array[i+1] - array[i];
         }
         return stepsArray;
+    }
+
+    static String checkProgressionType(int[] array) {
+        if (checkGeometricProgression(array)) return "geo";
+        else if (checkArithmeticProgression(array)) return "ari";
+        else if (checkArithmeticProgression(getStepsArray(array))) return "2^ari";
+        else if (checkArithmeticProgression(getStepsArray(getStepsArray(array)))) return "3^ari";
+        else if (checkArithmeticProgression(getStepsArray(getStepsArray(getStepsArray(array))))) return "4^ari";
+        else return "no prog";
+    }
+
+    static void printProgressionType(String type) {
+        switch (type) {
+            case "geo":
+                System.out.println("It is a geometric progression.");
+                break;
+            case "ari":
+                System.out.println("It is an arithmetic progression.");
+                break;
+            case "2^ari":
+                System.out.println("It is a second-order arithmetic progression.");
+                break;
+            case "3^ari":
+                System.out.println("It is a third-order arithmetic progression.");
+                break;
+            case "4^ari":
+                System.out.println("It is a fourth-order arithmetic progression.");
+                break;
+        }
     }
 }
