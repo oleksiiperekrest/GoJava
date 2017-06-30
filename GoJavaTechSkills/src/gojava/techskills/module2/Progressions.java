@@ -12,14 +12,20 @@ package gojava.techskills.module2;
 строку 0,2,4,6,8,10,12 ответом программы должно быть число 14.
  */
 
+import java.util.Arrays;
 public class Progressions {
     public static void main(String[] args) {
 
-        int[] array = {1,4,7,10,13};
+        int[] array = {1,8,27,64,125};
 
-        System.out.println(array[0]);
-        System.out.println(checkArithmeticProgression(array));
-        System.out.println(getArithmeticStep(array));
+        System.out.println(Arrays.toString(array));
+
+        if (checkGeometricProgression(array)) System.out.println("Is Geometric progression!");
+        if (checkArithmeticProgression(array)) System.out.println("Is Arithmetic progression!");
+        if (checkArithmeticProgression(getStepsArray(array))) System.out.println("Is Second-order Arithmetic progresion!");
+        if (checkArithmeticProgression(getStepsArray(getStepsArray(array)))) System.out.println("Is Third-order Arithmetic progresion!");
+
+        System.out.println(Arrays.toString(getStepsArray(array)));
     }
 
     static int getArithmeticStep(int[] array) {
@@ -38,6 +44,7 @@ public class Progressions {
                 return false;
             }
         }
+
         return true;
     }
 
@@ -58,5 +65,13 @@ public class Progressions {
             }
         }
         return true;
+    }
+
+    static int[] getStepsArray(int[] array) {
+        int[] stepsArray = new int[array.length - 1];
+        for (int i = 0; i < array.length - 1; i++) {
+            stepsArray[i] = array[i+1] - array[i];
+        }
+        return stepsArray;
     }
 }
