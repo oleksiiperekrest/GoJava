@@ -40,4 +40,23 @@ public class Progressions {
         }
         return true;
     }
+
+    static int getGeometricStep(int[] array) {
+        if(checkGeometricProgression(array)) return array[1] / array[0];
+        else return 1;
+    }
+
+    static boolean checkGeometricProgression(int[] array){
+        if (array.length < 2){
+            System.out.println("Entered progression is too small for analysis");
+            return false;
+        }
+        int step = array[1] / array[0];
+        for (int i = 2; i < array.length; i++) {
+            if (step != array[i] / array[i-1]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
