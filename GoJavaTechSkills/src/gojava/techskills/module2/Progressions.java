@@ -12,8 +12,13 @@ package gojava.techskills.module2;
 строку 0,2,4,6,8,10,12 ответом программы должно быть число 14.
  */
 
-public class Extra3 {
+public class Progressions {
     public static void main(String[] args) {
-        
+
+    }
+    
+    static boolean checkArithmeticProgression(int[] array) {
+
+        return false;
     }
 }
