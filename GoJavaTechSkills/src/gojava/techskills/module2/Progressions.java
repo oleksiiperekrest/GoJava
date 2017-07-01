@@ -12,12 +12,12 @@ package gojava.techskills.module2;
 строку 0,2,4,6,8,10,12 ответом программы должно быть число 14.
  */
 
-import java.util.ArrayList;
 import java.util.Arrays;
 public class Progressions {
     public static void main(String[] args){
 
-        int[][] progressions = {{0,2,4,6,8,10,12}, {1,4,7,10,13}, {1,2,4,8,16,32}, {1,3,9,27}, {1,4,9,16,25}, {1,8,27,64,125}};
+        int[][] progressions = {{0,2,4,6,8,10,12}, {1,4,7,10,13}, {1,2,4,8,16,32}, {1,3,9,27}, {1,4,9,16,25},
+                {1,8,27,64,125}, {5,6,7,99}};
 
 
 
@@ -30,12 +30,19 @@ public class Progressions {
             System.out.println();
             }
 
+/*
+       int[] array = {1,8,27,64,125};
 
-       /* int[] array = {1,4,9,16,25};
+        System.out.println();
+
+        printProgressionType(checkProgressionType(continueProgression(getStepsArray(continueProgression(getStepsArray(array))))));
+
+        System.out.println(continueProgression(getStepsArray(getStepsArray(array)))
+                [continueProgression(getStepsArray(getStepsArray(array))).length-1]);
+
         System.out.println (Arrays.toString(continueProgression(getStepsArray(array))));
-        printProgressionType(checkProgressionType(getStepsArray(array)));
-        System.out.println(continueProgression(getStepsArray(array))[continueProgression(getStepsArray(array)).length-1]);
-        */
+        System.out.println(Arrays.toString(continueProgression(getStepsArray(getStepsArray(array)))));
+*/
 
     }
 
@@ -133,12 +140,11 @@ public class Progressions {
     static int getNextTerm(int[] array) {
         if (checkProgressionType(array) == "geo") return array[array.length-1] * getGeometricStep(array);
         else if (checkProgressionType(array) == "ari") return array[array.length-1] + getArithmeticStep(array);
-        else if (checkProgressionType(array) == "2^ari") return array[array.length-1] +
-                continueProgression(getStepsArray(array))[continueProgression(getStepsArray(array)).length-1];
-
-        /*else if (checkProgressionType(array) == "3^ari") return array[array.length-1] +
-                continueProgression(getStepsArray(array))[];
-        else if (checkProgressionType(array) == "4^ari") return getArithmeticStep(getStepsArray(getStepsArray(getStepsArray(array))));
+        else if (checkProgressionType(array) == "2^ari" || checkProgressionType(array) == "3^ari")
+            return array[array.length-1] + continueProgression(getStepsArray(array))
+                    [continueProgression(getStepsArray(array)).length-1];
+        /*
+        else if (checkProgressionType(array) == "4^ari")
         */
         else return 0;
     }
