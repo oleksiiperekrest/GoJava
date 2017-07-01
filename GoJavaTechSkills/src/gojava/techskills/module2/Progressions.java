@@ -12,15 +12,23 @@ package gojava.techskills.module2;
 строку 0,2,4,6,8,10,12 ответом программы должно быть число 14.
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
 public class Progressions {
     public static void main(String[] args) {
 
-        int[] array = {1,8,27,64,125};
+        int[][] progressions = {{0,2,4,6,8,10,12}, {1,4,7,10,13}, {1,2,4,8,16,32}, {1,3,9,27}, {1,4,9,16,25}, {1,8,27,64,125}};
 
-        System.out.println(Arrays.toString(array));
 
-        printProgressionType(checkProgressionType(array));
+
+        for (int i = 0; i < progressions[i].length; i++) {
+
+            System.out.println(Arrays.toString(progressions[i]));
+            printProgressionType(checkProgressionType(progressions[i]));
+
+            System.out.println(Arrays.toString(continueProgression(progressions[i])));
+            System.out.println();
+        }
     }
 
     static int getArithmeticStep(int[] array) {
@@ -49,6 +57,7 @@ public class Progressions {
     }
 
     static boolean checkGeometricProgression(int[] array) {
+        if (array[0] == 0) return false;
         if (array.length < 2){
             System.out.println("Entered progression is too small for analysis");
             return false;
@@ -76,6 +85,7 @@ public class Progressions {
         else if (checkArithmeticProgression(getStepsArray(array))) return "2^ari";
         else if (checkArithmeticProgression(getStepsArray(getStepsArray(array)))) return "3^ari";
         else if (checkArithmeticProgression(getStepsArray(getStepsArray(getStepsArray(array))))) return "4^ari";
+
         else return "no prog";
     }
 
@@ -96,6 +106,29 @@ public class Progressions {
             case "4^ari":
                 System.out.println("It is a fourth-order arithmetic progression.");
                 break;
+
+            case "no prog":
+                System.out.println("Progression type not found.");
+                break;
         }
+    }
+
+    static int[] continueProgression(int[] array) {
+        int[] progressionNext = new int[array.length+1];
+        for (int i = 0; i < array.length; i++) {
+            progressionNext[i] = array[i];
+        }
+        progressionNext[array.length] = getNextTerm(array);
+        return progressionNext;
+    }
+
+    static int getNextTerm(int[] array) {
+        if (checkProgressionType(array) == "geo") return array[array.length-1] * getGeometricStep(array);
+        else if (checkProgressionType(array) == "ari") return array[array.length-1] + getArithmeticStep(array);
+        else if (checkProgressionType(array) == "2^ari") return getArithmeticStep(getStepsArray(array));
+        else if (checkProgressionType(array) == "3^ari") return getArithmeticStep(getStepsArray(getStepsArray(array)));
+        else if (checkProgressionType(array) == "4^ari") return getArithmeticStep(getStepsArray(getStepsArray(getStepsArray(array))));
+
+        else return 0;
     }
 }
