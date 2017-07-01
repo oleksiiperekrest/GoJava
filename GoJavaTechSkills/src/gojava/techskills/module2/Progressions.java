@@ -136,10 +136,10 @@ public class Progressions {
         else if (checkProgressionType(array) == "2^ari") return array[array.length-1] +
                 continueProgression(getStepsArray(array))[continueProgression(getStepsArray(array)).length-1];
 
-        else if (checkProgressionType(array) == "3^ari") return array[array.length-1] +
+        /*else if (checkProgressionType(array) == "3^ari") return array[array.length-1] +
                 continueProgression(getStepsArray(array))[];
         else if (checkProgressionType(array) == "4^ari") return getArithmeticStep(getStepsArray(getStepsArray(getStepsArray(array))));
-
+        */
         else return 0;
     }
 }
