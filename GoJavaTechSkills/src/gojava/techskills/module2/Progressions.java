@@ -17,7 +17,8 @@ public class Progressions {
     public static void main(String[] args){
 
         int[][] progressions = {{0,2,4,6,8,10,12}, {1,4,7,10,13}, {1,2,4,8,16,32}, {1,3,9,27}, {1,4,9,16,25},
-                {1,8,27,64,125}, {5,6,14,41,105}, {5,6,7,99}};
+                {1,8,27,64,125}, {5,6,14,41,105}, {5,6,7,99},
+                {6,6}, {12,18,24}, {7,19,37,61}, {1,8,27,64,125}, {5,6,14,41,105,230}, {0,1,9,36,100,225}};
 
 
 
@@ -31,18 +32,14 @@ public class Progressions {
             }
 //debugging area
 /*
-       int[] array = {1,8,27,64,125};
-
+       int[] array = {5,6,7,99};
+        System.out.println(Arrays.toString(array));
         System.out.println();
-
-        printProgressionType(checkProgressionType(continueProgression(getStepsArray(continueProgression(getStepsArray(array))))));
-
-        System.out.println(continueProgression(getStepsArray(getStepsArray(array)))
-                [continueProgression(getStepsArray(getStepsArray(array))).length-1]);
-
-        System.out.println (Arrays.toString(continueProgression(getStepsArray(array))));
-        System.out.println(Arrays.toString(continueProgression(getStepsArray(getStepsArray(array)))));
+        printProgressionType(checkProgressionType(array));
+        System.out.println(Arrays.toString(continueProgression(array)));
 */
+
+
 
     }
 
@@ -86,7 +83,7 @@ public class Progressions {
      */
     static boolean checkArithmeticProgression(int[] array) {
         if (array.length < 2){
-            System.out.println("Entered progression is too small for analysis");
+            //System.out.println("Entered progression is too small for analysis");
             return false;
         }
         int step = array[1] - array[0];
@@ -133,9 +130,12 @@ public class Progressions {
     static String checkProgressionType(int[] array) {
         if (checkGeometricProgression(array)) return "geo";
         else if (checkArithmeticProgression(array)) return "ari";
-        else if (checkArithmeticProgression(getStepsArray(array))) return "2^ari";
-        else if (checkArithmeticProgression(getStepsArray(getStepsArray(array)))) return "3^ari";
-        else if (checkArithmeticProgression(getStepsArray(getStepsArray(getStepsArray(array))))) return "4^ari";
+        else if (checkArithmeticProgression(getStepsArray(array))
+                && array.length >= 4) return "2^ari";
+        else if (checkArithmeticProgression(getStepsArray(getStepsArray(array)))
+                && array.length >= 5) return "3^ari";
+        else if (checkArithmeticProgression(getStepsArray(getStepsArray(getStepsArray(array))))
+                && array.length >= 6) return "4^ari";
 
         else return "no prog";
     }
@@ -175,6 +175,7 @@ public class Progressions {
      * @return An initial array +1 length supplemented with next member of identified progression.
      */
     static int[] continueProgression(int[] array) {
+        if (checkProgressionType(array) == "no prog") return array;
         int[] progressionNext = new int[array.length+1];
         for (int i = 0; i < array.length; i++) {
             progressionNext[i] = array[i];
@@ -191,12 +192,10 @@ public class Progressions {
     static int getNextTerm(int[] array) {
         if (checkProgressionType(array) == "geo") return array[array.length-1] * getGeometricStep(array);
         else if (checkProgressionType(array) == "ari") return array[array.length-1] + getArithmeticStep(array);
-        else if (checkProgressionType(array) == "2^ari" || checkProgressionType(array) == "3^ari")
-            return array[array.length-1] + continueProgression(getStepsArray(array))
-                    [continueProgression(getStepsArray(array)).length-1];
-        /*
-        else if (checkProgressionType(array) == "4^ari")
-        */
+        else if (checkProgressionType(array) == "2^ari" || checkProgressionType(array) == "3^ari" ||
+                checkProgressionType(array) == "4^ari") return array[array.length-1] +
+                continueProgression(getStepsArray(array))[continueProgression(getStepsArray(array)).length-1];
+
         else return 0;
     }
 }
