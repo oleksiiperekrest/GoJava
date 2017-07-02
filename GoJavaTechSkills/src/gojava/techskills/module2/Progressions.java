@@ -51,10 +51,11 @@ public class Progressions {
      *
      *
      * Should be called if(checkArithmeticProgression())
-     * @return Common difference of Arithmetic progression.
+     * @return Common difference of first-order Arithmetic progression or
+     * next difference of second-order Arithmetic progression. (Basically same thing).
      */
     static int getArithmeticStep(int[] array) {
-        if(checkArithmeticProgression(array)) return array[1] - array[0];
+        if(checkArithmeticProgression(array)) return array[array.length-1] - array[array.length-2];
         else return 0;
     }
 
@@ -142,7 +143,7 @@ public class Progressions {
     /**
      * Reads an array of ints.
      *
-     * @return Prints a message for progression type found with checkProgressionType(int[] array).
+     * Prints a message for progression type found with checkProgressionType(int[] array).
      */
     static void printProgressionType(String type) {
         switch (type) {
