@@ -17,7 +17,7 @@ public class Progressions {
     public static void main(String[] args){
 
         int[][] progressions = {{0,2,4,6,8,10,12}, {1,4,7,10,13}, {1,2,4,8,16,32}, {1,3,9,27}, {1,4,9,16,25},
-                {1,8,27,64,125}, {5,6,7,99}};
+                {1,8,27,64,125}, {5,6,14,41,105}, {5,6,7,99}};
 
 
 
@@ -29,7 +29,7 @@ public class Progressions {
             System.out.println(Arrays.toString(continueProgression(progressions[i])));
             System.out.println();
             }
-
+//debugging area
 /*
        int[] array = {1,8,27,64,125};
 
@@ -46,31 +46,23 @@ public class Progressions {
 
     }
 
+    /**
+     * Reads an array of ints.
+     *
+     *
+     * Should be called if(checkArithmeticProgression())
+     * @return Common difference of Arithmetic progression.
+     */
     static int getArithmeticStep(int[] array) {
         if(checkArithmeticProgression(array)) return array[1] - array[0];
         else return 0;
     }
 
-    static boolean checkArithmeticProgression(int[] array) {
-        if (array.length < 2){
-            System.out.println("Entered progression is too small for analysis");
-            return false;
-        }
-        int step = array[1] - array[0];
-        for (int i = 2; i < array.length; i++) {
-            if (step != array[i] - array[i-1]) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    static int getGeometricStep(int[] array) {
-        if(checkGeometricProgression(array)) return array[1] / array[0];
-        else return 1;
-    }
-
+    /**
+     * Reads an array of ints.
+     *
+     * @return true if identified as Geometric progression (first-order).
+     */
     static boolean checkGeometricProgression(int[] array) {
         if (array[0] == 0) return false;
         if (array.length < 2){
@@ -86,6 +78,44 @@ public class Progressions {
         return true;
     }
 
+    /**
+     * Reads an array of ints.
+     *
+     * @return true if identified as Arithmetic progression (first-order).
+     */
+    static boolean checkArithmeticProgression(int[] array) {
+        if (array.length < 2){
+            System.out.println("Entered progression is too small for analysis");
+            return false;
+        }
+        int step = array[1] - array[0];
+        for (int i = 2; i < array.length; i++) {
+            if (step != array[i] - array[i-1]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Reads an array of ints.
+     *
+     *
+     * Should be called if(checkGeometricProgression())
+     * @return Common ratio of Geometric progression.
+     */
+    static int getGeometricStep(int[] array) {
+        if(checkGeometricProgression(array)) return array[1] / array[0];
+        else return 1;
+    }
+
+
+    /**
+     * Reads an array of ints.
+     *
+     * @return Array of differences. Used to identify Arithmetic progression of higher orders.
+     */
     static int[] getStepsArray(int[] array) {
         int[] stepsArray = new int[array.length - 1];
         for (int i = 0; i < array.length - 1; i++) {
@@ -94,6 +124,11 @@ public class Progressions {
         return stepsArray;
     }
 
+    /**
+     * Reads an array of ints.
+     *
+     * @return Type of progression as a short String. (should not to be output to user)
+     */
     static String checkProgressionType(int[] array) {
         if (checkGeometricProgression(array)) return "geo";
         else if (checkArithmeticProgression(array)) return "ari";
@@ -104,6 +139,11 @@ public class Progressions {
         else return "no prog";
     }
 
+    /**
+     * Reads an array of ints.
+     *
+     * @return Prints a message for progression type found with checkProgressionType(int[] array).
+     */
     static void printProgressionType(String type) {
         switch (type) {
             case "geo":
@@ -128,6 +168,11 @@ public class Progressions {
         }
     }
 
+    /**
+     * Reads an array of ints.
+     *
+     * @return An initial array +1 length supplemented with next member of identified progression.
+     */
     static int[] continueProgression(int[] array) {
         int[] progressionNext = new int[array.length+1];
         for (int i = 0; i < array.length; i++) {
@@ -137,6 +182,11 @@ public class Progressions {
         return progressionNext;
     }
 
+    /**
+     * Reads an array of ints.
+     *
+     * @return int next member of Geometric or Arithmetic progression.
+     */
     static int getNextTerm(int[] array) {
         if (checkProgressionType(array) == "geo") return array[array.length-1] * getGeometricStep(array);
         else if (checkProgressionType(array) == "ari") return array[array.length-1] + getArithmeticStep(array);
