@@ -12,35 +12,22 @@ package gojava.techskills.module2;
 строку 0,2,4,6,8,10,12 ответом программы должно быть число 14.
  */
 
+
 import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * Gets user input of int numbers, attempts to find progression type.
+ *
+ * @return Prints a type of progression found and an array of progression with one more member.
+ */
 public class Progressions {
     public static void main(String[] args){
 
-        int[][] progressions = {{0,2,4,6,8,10,12}, {1,4,7,10,13}, {1,2,4,8,16,32}, {1,3,9,27}, {1,4,9,16,25},
-                {1,8,27,64,125}, {5,6,14,41,105}, {5,6,7,99},
-                {6,6}, {12,18,24}, {7,19,37,61}, {1,8,27,64,125}, {5,6,14,41,105,230}, {0,1,9,36,100,225}};
+        int[] progression = getInputArray();
+        printProgressionType(checkProgressionType(progression));
 
-
-
-        for (int i = 0; i < progressions.length; i++) {
-
-            System.out.println(Arrays.toString(progressions[i]));
-            printProgressionType(checkProgressionType(progressions[i]));
-
-            System.out.println(Arrays.toString(continueProgression(progressions[i])));
-            System.out.println();
-            }
-//debugging area
-/*
-       int[] array = {5,6,7,99};
-        System.out.println(Arrays.toString(array));
-        System.out.println();
-        printProgressionType(checkProgressionType(array));
-        System.out.println(Arrays.toString(continueProgression(array)));
-*/
-
-
-
+        System.out.println(Arrays.toString(continueProgression(progression)));
     }
 
     /**
@@ -197,5 +184,24 @@ public class Progressions {
                 continueProgression(getStepsArray(array))[continueProgression(getStepsArray(array)).length-1];
 
         else return 0;
+    }
+
+    /**
+     * Gets user input of int numbers (separated by commas).
+     *
+     * @return int[] array of numbers entered by user.
+     */
+    static int[] getInputArray() {
+        System.out.println("Enter a progression (a sequence of integers separated by commas).");
+        Scanner input = new Scanner(System.in);
+        String line = input.nextLine();
+
+        String[] items = line.replaceAll(" ", "").split(",", -1);
+
+        int[] array = new int[items.length];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = Integer.parseInt(items[i]);
+        }
+        return array;
     }
 }
