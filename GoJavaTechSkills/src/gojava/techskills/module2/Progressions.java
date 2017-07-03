@@ -26,13 +26,6 @@ import java.util.Scanner;
 public class Progressions {
     public static void main(String[] args){
 
-        try{
-            getInputArray();
-        }
-        catch (NumberFormatException e) {
-            System.out.println("Please try again.");
-        }
-
         int[] progression = getInputArray();
 
         printProgressionType(checkProgressionType(progression));
@@ -204,7 +197,7 @@ public class Progressions {
         System.out.println("Enter a progression (a sequence of integers separated by commas).");
         Scanner input = new Scanner(System.in);
         String line = input.nextLine();
-
+        //try{}
         String[] items = line.replaceAll(" ", "").split(",", -1);
 
         int[] array = new int[items.length];
