@@ -18,6 +18,7 @@ import java.util.Scanner;
 
 /**
  * Gets user input of int numbers, attempts to find progression type.
+ * (for now) Solves Geometric progressions and Arithmetic progressions up-to 4-th order.
  *
  * @return Prints a type of progression found and an array of progression with one more member.
  */
