@@ -13,6 +13,7 @@ package gojava.techskills.module2;
  */
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -25,9 +26,16 @@ import java.util.Scanner;
 public class Progressions {
     public static void main(String[] args){
 
-        int[] progression = getInputArray();
-        printProgressionType(checkProgressionType(progression));
+        try{
+            getInputArray();
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Please try again.");
+        }
 
+        int[] progression = getInputArray();
+
+        printProgressionType(checkProgressionType(progression));
         System.out.println(Arrays.toString(continueProgression(progression)));
     }
 
@@ -200,6 +208,7 @@ public class Progressions {
         String[] items = line.replaceAll(" ", "").split(",", -1);
 
         int[] array = new int[items.length];
+
         for (int i = 0; i < array.length; i++) {
             array[i] = Integer.parseInt(items[i]);
         }
