@@ -116,8 +116,8 @@ public class Progressions {
      * @return Type of progression as a short String. (should not to be output to user)
      */
     static String checkProgressionType(int[] array) {
-        if (checkGeometricProgression(array)) return "geo";
-        else if (checkArithmeticProgression(array)) return "ari";
+        if (checkArithmeticProgression(array)) return "ari";
+        else if (checkGeometricProgression(array)) return "geo";
         else if (checkArithmeticProgression(getStepsArray(array))
                 && array.length >= 4) return "2^ari";
         else if (checkArithmeticProgression(getStepsArray(getStepsArray(array)))
