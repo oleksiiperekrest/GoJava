@@ -27,6 +27,11 @@ public class Progressions {
         int[] progression = getInputArray();
 
         printProgressionType(checkProgressionType(progression));
+       /* if(checkProgressionType(progression) != "no prog") System.out.println("How many members to add to progression?");
+        int count = Homework2.getIntInput();
+        for (int i = 0; i < count; i++) {
+
+        }*/
         System.out.println(Arrays.toString(continueProgression(progression)));
     }
 
@@ -200,7 +205,7 @@ public class Progressions {
 
         int[] array = new int[items.length];
 
-        /*
+/*
         try {
             for (String item: items) {
                 Integer.parseInt(item);
@@ -208,9 +213,11 @@ public class Progressions {
         }
         catch (NumberFormatException e) {
             System.out.println("Try again");
-            getInputArray();
         }
-        */
+        finally {
+            System.out.println("Finally");
+        }
+*/
 
         for (int i = 0; i < array.length; i++) {
             array[i] = Integer.parseInt(items[i]);
