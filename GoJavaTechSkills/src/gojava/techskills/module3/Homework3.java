@@ -40,6 +40,11 @@ public class Homework3 {
         printArrayInfo(array);
     }
 
+    /**
+     * Prints out array of integers and additional info: min and max value, how many times number 5 found in it,
+     * sorted in ascending order array, max and min quantity of repeats of integers in array.
+     * @param array
+     */
     static void printArrayInfo(int[] array) {
         System.out.println(Arrays.toString(array));
         System.out.println("Min value: " + getMinValue(array));
@@ -51,7 +56,11 @@ public class Homework3 {
 
     }
 
-    static int[] getCountedInput() {
+    /**
+     * Asks user for input of array size and integer numbers to fill that array.
+     * @return Array of integers entered by user.
+     */
+    public static int[] getCountedInput() {
         System.out.println("Enter desired array length.");
         int number = in.nextInt();
         System.out.println("Enter " + number + " integer numbers pressing \"Enter\" after each.");
@@ -64,6 +73,10 @@ public class Homework3 {
         return array;
     }
 
+    /**
+     * Asks user for input integer numbers to fill an array (arbitrary size).
+     * @return Array of integers entered by user.
+     */
     static int[] getUncountedInput() {
         System.out.println("Enter integer numbers separated by commas or spaces.");
         String[] lineNumbers;
@@ -88,6 +101,10 @@ public class Homework3 {
         return numbers;
     }
 
+    /**
+     * Asks user whether they want to predetermine array size.
+     * @return Does user want to enter array size?
+     */
     static boolean countedInput() {
         String input;
         boolean yn;
@@ -109,6 +126,11 @@ public class Homework3 {
         return yn;
     }
 
+    /**
+     *
+     * @param array of integers.
+     * @return largest integer number of given array.
+     */
     static int getMaxValue(int[] array) {
         int maxValue = array[0];
         for (int i = 1; i < array.length; i++) {
@@ -117,6 +139,11 @@ public class Homework3 {
         return maxValue;
     }
 
+    /**
+     *
+     * @param array of integers.
+     * @return smallest integer number of given array.
+     */
     static int getMinValue(int[] array) {
         int minValue = array[0];
         for (int i = 1; i < array.length; i++) {
@@ -125,6 +152,11 @@ public class Homework3 {
         return minValue;
     }
 
+    /**
+     *
+     * @param array of integers.
+     * @return how many times number 5 found in given array.
+     */
     static int countFives(int[] array){
         int count = 0;
         for (int number : array) {
@@ -133,7 +165,12 @@ public class Homework3 {
         return count;
     }
 
-    static int[] sortBubble (int[] array) {
+    /**
+     *
+     * @param array of integers.
+     * @return sorted in ascending order with bubble sort algorithm array.
+     */
+    public static int[] sortBubble (int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - i; j++) {
                 if (array[j - 1] > array[j]) {
@@ -144,12 +181,24 @@ public class Homework3 {
         return array;
     }
 
-    static void swap (int[] array, int a, int b) {
+    /**
+     *
+     * @param array of integers
+     * @param a index of first element to be swapped with second.
+     * @param b index of second element to be swapped with first.
+     */
+    public static void swap (int[] array, int a, int b) {
         int temp = array[a];
         array[a] = array[b];
         array[b] = temp;
     }
 
+    /**
+     *
+     * @param c integet number to be searched in array.
+     * @param array of integers.
+     * @return how many times given number was found in array.
+     */
     static int countRepeats(int c, int[] array) {
         int count = 0;
         for (int number : array) {
@@ -158,6 +207,11 @@ public class Homework3 {
         return count;
     }
 
+    /**
+     *
+     * @param array of integers.
+     * @return most number of repeated numbers in array.
+     */
     static int countMaxRepeats(int[] array) {
         int count = countRepeats(array[0], array);
         for (int i = 1; i < array.length; i++) {
@@ -166,6 +220,11 @@ public class Homework3 {
         return count;
     }
 
+    /**
+     *
+     * @param array of integers.
+     * @return least number of repeated numbers in array.
+     */
     static int countMinRepeats(int[] array) {
         int count = countRepeats(array[0], array);
         for (int i = 1; i < array.length; i++) {
