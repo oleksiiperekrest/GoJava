@@ -43,7 +43,7 @@ public class Homework3 {
     /**
      * Prints out array of integers and additional info: min and max value, how many times number 5 found in it,
      * sorted in ascending order array, max and min quantity of repeats of integers in array.
-     * @param array
+     * @param array Array of integers.
      */
     static void printArrayInfo(int[] array) {
         System.out.println(Arrays.toString(array));
@@ -127,9 +127,8 @@ public class Homework3 {
     }
 
     /**
-     *
-     * @param array of integers.
-     * @return largest integer number of given array.
+     * @param array Array of integers.
+     * @return Largest integer number of given array.
      */
     static int getMaxValue(int[] array) {
         int maxValue = array[0];
@@ -140,9 +139,8 @@ public class Homework3 {
     }
 
     /**
-     *
-     * @param array of integers.
-     * @return smallest integer number of given array.
+     * @param array Array of integers.
+     * @return Smallest integer number of given array.
      */
     static int getMinValue(int[] array) {
         int minValue = array[0];
@@ -153,9 +151,8 @@ public class Homework3 {
     }
 
     /**
-     *
-     * @param array of integers.
-     * @return how many times number 5 found in given array.
+     * @param array Array of integers.
+     * @return How many times number 5 found in given array.
      */
     static int countFives(int[] array){
         int count = 0;
@@ -166,9 +163,8 @@ public class Homework3 {
     }
 
     /**
-     *
-     * @param array of integers.
-     * @return sorted in ascending order with bubble sort algorithm array.
+     * @param array Array of integers.
+     * @return Array sorted in ascending order with bubble sort algorithm.
      */
     public static int[] sortBubble (int[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -182,10 +178,9 @@ public class Homework3 {
     }
 
     /**
-     *
-     * @param array of integers
-     * @param a index of first element to be swapped with second.
-     * @param b index of second element to be swapped with first.
+     * @param array Array of integers
+     * @param a Index of first element to be swapped with second.
+     * @param b Index of second element to be swapped with first.
      */
     public static void swap (int[] array, int a, int b) {
         int temp = array[a];
@@ -194,10 +189,9 @@ public class Homework3 {
     }
 
     /**
-     *
-     * @param c integet number to be searched in array.
-     * @param array of integers.
-     * @return how many times given number was found in array.
+     * @param c Integer number to be searched in array.
+     * @param array Array of integers.
+     * @return How many times given number was found in array.
      */
     static int countRepeats(int c, int[] array) {
         int count = 0;
@@ -208,9 +202,8 @@ public class Homework3 {
     }
 
     /**
-     *
-     * @param array of integers.
-     * @return most number of repeated numbers in array.
+     * @param array Array of integers.
+     * @return Most number of repeated numbers in array.
      */
     static int countMaxRepeats(int[] array) {
         int count = countRepeats(array[0], array);
@@ -221,9 +214,8 @@ public class Homework3 {
     }
 
     /**
-     *
-     * @param array of integers.
-     * @return least number of repeated numbers in array.
+     * @param array Array of integers.
+     * @return Least number of repeated numbers in array.
      */
     static int countMinRepeats(int[] array) {
         int count = countRepeats(array[0], array);
