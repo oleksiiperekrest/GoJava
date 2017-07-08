@@ -34,6 +34,10 @@ public class Homework3 {
 
         int[] array = getCountedInput();
 
+        printArrayInfo(array);
+    }
+
+    static void printArrayInfo(int[] array) {
         System.out.println(Arrays.toString(array));
         System.out.println("Min value: " + getMinValue(array));
         System.out.println("Max value: " + getMaxValue(array));
