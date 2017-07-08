@@ -1,5 +1,12 @@
 package gojava.techskills.Offline1;
 
+/*
+Задача 2
+Программа считывает размер массива А
+        Программа считывает массив А
+
+        Перевернуть массив (отзеркалить массив) и вывести его в консоль
+*/
 import java.util.Scanner;
 import java.util.Arrays;
 
