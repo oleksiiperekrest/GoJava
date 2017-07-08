@@ -30,9 +30,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Homework3 {
+
+    static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        int[] array = getCountedInput();
+        int[] array = countedInput() ? getCountedInput() : getUncountedInput();
 
         printArrayInfo(array);
     }
@@ -44,19 +47,65 @@ public class Homework3 {
         System.out.println("Number 5 found in array " + countFives(array) + " times.");
         System.out.println("Sorted array:\n" + Arrays.toString(sortBubble(array)));
         System.out.println("Maximum repeats in array: " + countMaxRepeats(array) + ".");
+        System.out.println("Minimum repeats in array: " + countMinRepeats(array) + ".");
+
     }
 
     static int[] getCountedInput() {
-        Scanner in = new Scanner(System.in);
         System.out.println("Enter desired array length.");
         int number = in.nextInt();
-        System.out.println("Enter " + number + " integer numbers separated by Enters.");
+        System.out.println("Enter " + number + " integer numbers pressing \"Enter\" after each.");
 
         int[] array = new int[number];
         for (int i = 0; i < number; i++) {
+            System.out.println("Please enter number " + (i+1) + " of " + number + ".");
             array[i] = in.nextInt();
         }
         return array;
+    }
+
+    static int[] getUncountedInput() {
+        System.out.println("Enter integer numbers separated by commas or spaces.");
+        String[] lineNumbers;
+        int[] numbers;
+        while (true) {
+            String line = in.nextLine();
+            if (line.contains(",")) lineNumbers = line.replaceAll(" ", "")
+                    .replaceAll(",+", ",").split(",");
+
+            else lineNumbers = line.replaceAll(" +", " ").split(" ");
+            try {
+                numbers = new int[lineNumbers.length];
+                for (int i = 0; i < lineNumbers.length; i++) {
+                    numbers[i] = Integer.parseInt(lineNumbers[i]);
+                }
+                break;
+            }
+                catch (Exception e) {
+                    System.out.println("Please enter only integer numbers separated by (only) commas or spaces");
+                }
+            }
+        return numbers;
+    }
+
+    static boolean countedInput() {
+        String input;
+        boolean yn;
+
+        System.out.println("Would you like to predetermine number of integers in an array? (y/n)");
+        while (true) {
+            input = in.nextLine().trim().toLowerCase();
+            if (input.equals("y")) {
+                yn = true;
+                break;
+            } else if (input.equals("n")) {
+                yn = false;
+                break;
+            } else {
+                System.out.println("Please answer y/n");
+            }
+        }
+        return yn;
     }
 
     static int getMaxValue(int[] array) {
@@ -111,7 +160,15 @@ public class Homework3 {
     static int countMaxRepeats(int[] array) {
         int count = countRepeats(array[0], array);
         for (int i = 1; i < array.length; i++) {
-            if (count < countRepeats(array[0], array)) count = countRepeats(array[i], array);
+            if (count < countRepeats(array[i], array)) count = countRepeats(array[i], array);
+        }
+        return count;
+    }
+
+    static int countMinRepeats(int[] array) {
+        int count = countRepeats(array[0], array);
+        for (int i = 1; i < array.length; i++) {
+            if (count > countRepeats(array[i], array)) count = countRepeats(array[i], array);
         }
         return count;
     }
