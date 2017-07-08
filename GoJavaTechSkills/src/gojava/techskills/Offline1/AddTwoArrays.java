@@ -17,7 +17,7 @@ public class AddTwoArrays {
 
     static int[] getArrayInput() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter desired array A length.");
+        System.out.println("Enter desired array length.");
         int a = in.nextInt();
         int[] array = new int[a];
         System.out.println("Enter " + a + " numbers separated by Enter.");
