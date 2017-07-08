@@ -95,6 +95,7 @@ public class Homework3 {
         System.out.println("Would you like to predetermine number of integers in an array? (y/n)");
         while (true) {
             input = in.nextLine().trim().toLowerCase();
+
             if (input.equals("y")) {
                 yn = true;
                 break;
@@ -102,7 +103,7 @@ public class Homework3 {
                 yn = false;
                 break;
             } else {
-                System.out.println("Please answer y/n");
+                System.out.println("Please answer \"y\" or \"n\".");
             }
         }
         return yn;
@@ -136,7 +137,7 @@ public class Homework3 {
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - i; j++) {
                 if (array[j - 1] > array[j]) {
-                    swap(array, j, j - 1);
+                    swap(array, j, (j - 1));
                 }
             }
         }
@@ -172,5 +173,4 @@ public class Homework3 {
         }
         return count;
     }
-
 }
