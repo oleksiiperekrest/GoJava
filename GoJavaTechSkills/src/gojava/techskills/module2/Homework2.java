@@ -69,7 +69,7 @@ public class Homework2 {
     }
 
 
-    static int getIntInput() {
+    public static int getIntInput() {
         Scanner input = new Scanner(System.in);
         while (!input.hasNextInt()) {
             System.out.println("(Enter a whole number)");
