@@ -28,6 +28,7 @@ package gojava.techskills.module3;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import static gojava.techskills.module2.Homework2.getIntInput;
 
 public class Homework3 {
 
@@ -62,13 +63,13 @@ public class Homework3 {
      */
     public static int[] getCountedInput() {
         System.out.println("Enter desired array length.");
-        int number = in.nextInt();
+        int number = getIntInput();
         System.out.println("Enter " + number + " integer numbers pressing \"Enter\" after each.");
 
         int[] array = new int[number];
         for (int i = 0; i < number; i++) {
             System.out.println("Please enter number " + (i+1) + " of " + number + ".");
-            array[i] = in.nextInt();
+            array[i] = getIntInput();
         }
         return array;
     }
@@ -223,5 +224,13 @@ public class Homework3 {
             if (count > countRepeats(array[i], array)) count = countRepeats(array[i], array);
         }
         return count;
+    }
+
+    static int getPositiveIntInput() {
+        while (!in.hasNextInt() || in.nextInt() < 0) {
+            System.out.println("(Enter a whole number)");
+            in.next();
+        }
+        return in.nextInt();
     }
 }
