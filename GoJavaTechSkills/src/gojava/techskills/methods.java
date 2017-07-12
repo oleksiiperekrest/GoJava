@@ -13,7 +13,7 @@ public class methods {
     public static int getIntInput() {
         Scanner input = new Scanner(System.in);
         while (!input.hasNextInt()) {
-            System.out.println("(Enter a whole number)");
+            System.out.println("(Enter a whole number!)");
             input.next();
         }
         return input.nextInt();
@@ -39,7 +39,7 @@ public class methods {
             } catch (NumberFormatException e) {
 
             }
-            System.out.print("Please enter a positive whole number!\n" + message);
+            System.out.print("(Enter a positive whole number!)\n" + message);
         }
     }
 }
