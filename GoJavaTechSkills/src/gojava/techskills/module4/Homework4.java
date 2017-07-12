@@ -46,8 +46,8 @@ import gojava.techskills.methods;
 
 public class Homework4 {
     public static void main(String[] args) {
-        countToNumber(askIntNumber());
-
+//        countToNumber(askIntNumber());
+        drawRectangle(askRectangleSides());
     }
 
     /**
@@ -75,7 +75,44 @@ public class Homework4 {
 
     }
 
-    static void drawRectangle(int a, int b) {
+    /**
+     * Asks user to input two positive integers to be used as sides of a rectangle.
+     * @return Array of 2 positive integers.
+     */
+    static int[] askRectangleSides(){
+        int[] sides = new int[2];
+        sides[0] = methods.getPositiveIntInput("Enter length of a rectangle.");
+        sides[1] = methods.getPositiveIntInput("Enter width of a rectangle.");
+        return sides;
+    }
 
+    /**
+     * Draws a rectangle with '+' signs, length and width defined by an array of 2 positive integers.
+     * @param sides Array of 2 positive integers.
+     */
+    static void drawRectangle(int[] sides) {
+        if (sides.length != 2) System.out.println("Wrong input! Must be array of two positive integers!");
+        else {
+            for (int i = 0; i < sides[0]; i++) {
+                for (int j = 0; j < sides[1]; j++) {
+                    System.out.print("+ ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    /**
+     * Draws a square with '+' signs, length and width defined by an integer.
+     * @param side Positive integers.
+     */
+    static void drawRectangle(int side) {
+
+            for (int i = 0; i < side; i++) {
+                for (int j = 0; j < side; j++) {
+                    System.out.print("+ ");
+                }
+                System.out.println();
+            }
     }
 }
