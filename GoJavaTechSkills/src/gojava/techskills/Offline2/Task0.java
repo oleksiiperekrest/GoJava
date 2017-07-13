@@ -9,12 +9,9 @@ package gojava.techskills.Offline2;
 Функция, которая возвращает число максимально приближенное к среднему числу...
  */
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import gojava.techskills.methods;
 
 import java.util.Arrays;
-import java.util.SortedMap;
 
 public class Task0 {
     public static void main(String[] args) {
