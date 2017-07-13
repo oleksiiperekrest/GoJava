@@ -92,9 +92,9 @@ public class Task0 {
         int index = 0;
         float diff = Math.abs(array[0] - mean); //Difference between first element of array and arithmetic mean.
         for (int i = 1; i < array.length; i++) {
-            if (diff > Math.abs(array[i] - mean)) { //If found smaller difference (closer to mean) - save it!
-                diff = Math.abs(array[i] - mean);
-                index = i;
+            if (diff > Math.abs(array[i] - mean)) { //If found smaller difference (closer to mean)
+                diff = Math.abs(array[i] - mean);   // - save it
+                index = i;                          // and it's index!
             }
 
             //When found array element with the same difference from arithmetic mean,
