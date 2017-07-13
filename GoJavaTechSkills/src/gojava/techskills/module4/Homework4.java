@@ -47,7 +47,12 @@ import gojava.techskills.methods;
 public class Homework4 {
     public static void main(String[] args) {
 //        countToNumber(askIntNumber());
-        drawRectangle(askRectangleSides());
+//        drawRectangle(askRectangleSides());
+//        System.out.println("Maximum of two float numbers: " + getMax(methods.getFloatInput("Enter a float number."),
+//                methods.getFloatInput("Enter a float number.")));
+//        System.out.println("Maximum of two integer numbers: " + getMax(methods.getIntInput("Enter an integer number."),
+//                methods.getIntInput("Enter an integer number.")));
+        contToNumberRecursively(askIntNumber());
     }
 
     /**
@@ -72,7 +77,18 @@ public class Homework4 {
         }
         else if (x == 0) System.out.println("Ok, just for you i will count to zero:\n0");
         else System.out.println("Sorry, that number is negative, I don't know how to count it.");
+    }
 
+    static void contToNumberRecursively(int x) {
+        if (x > 0) {
+            if (x == 1) System.out.print("1 ");
+            else {
+                System.out.print(x + " ");
+                contToNumberRecursively(x - 1);
+            }
+        }
+        else if (x == 0) System.out.println("Ok, just for you i will count to zero:\n0");
+        else System.out.println("Sorry, that number is negative, I don't know how to count it.");
     }
 
     /**
@@ -114,5 +130,23 @@ public class Homework4 {
                 }
                 System.out.println();
             }
+    }
+
+    /**
+     * @param a Integer number to be compared.
+     * @param a Integer number to be compared.
+     * @return Larger of two numbers.
+     */
+    public static int getMax(int a, int b) {
+        return a >= b ? a : b;
+    }
+
+    /**
+     * @param a Float number to be compared.
+     * @param a Float number to be compared.
+     * @return Larger of two numbers.
+     */
+    public static float getMax(float a, float b) {
+        return a >= b ? a : b;
     }
 }
