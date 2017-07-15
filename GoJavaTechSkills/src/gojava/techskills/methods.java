@@ -46,7 +46,7 @@ public class methods {
             String line = input.nextLine();
             try {
                 int n = Integer.parseInt(line);
-                if (n > 0) {
+                if (n >= 0) {
                     return n;
                 }
             } catch (NumberFormatException e) {
@@ -113,5 +113,27 @@ public class methods {
             array[i] = getFloatInput("Enter a number (" + (i+1) + " of " + length + ").");
         }
         return array;
+    }
+
+    public static boolean yesNo(String message) {
+        Scanner input = new Scanner(System.in);
+        String line;
+        boolean yn;
+
+        System.out.println(message + " (y/n)");
+        while (true) {
+            line = input.nextLine().trim().toLowerCase();
+
+            if (line.equals("y")) {
+                yn = true;
+                break;
+            } else if (line.equals("n")) {
+                yn = false;
+                break;
+            } else {
+                System.out.println("Please answer \"y\" or \"n\".");
+            }
+        }
+        return yn;
     }
 }
