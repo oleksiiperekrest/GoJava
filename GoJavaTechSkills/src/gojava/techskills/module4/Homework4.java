@@ -222,7 +222,7 @@ public class Homework4 {
 
     /**
      * @param a Integer number to be compared.
-     * @param a Integer number to be compared.
+     * @param b Integer number to be compared.
      * @return Greater of two numbers.
      */
     static int getMax(int a, int b) {
@@ -231,7 +231,7 @@ public class Homework4 {
 
     /**
      * @param a Integer number to be compared.
-     * @param a Float number to be compared.
+     * @param b Float number to be compared.
      * @return Greater of two numbers.
      */
     static float getMax(int a, float b) {
@@ -240,7 +240,7 @@ public class Homework4 {
 
     /**
      * @param a Float number to be compared.
-     * @param a Integer number to be compared.
+     * @param b Integer number to be compared.
      * @return Greater of two numbers.
      */
     static float getMax(float a, int b) {
@@ -249,7 +249,7 @@ public class Homework4 {
 
     /**
      * @param a Float number to be compared.
-     * @param a Float number to be compared.
+     * @param b Float number to be compared.
      * @return Greater of two numbers.
      */
     static float getMax(float a, float b) {
