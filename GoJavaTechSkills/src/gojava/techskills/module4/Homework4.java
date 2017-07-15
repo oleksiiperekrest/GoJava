@@ -46,7 +46,6 @@ import gojava.techskills.methods;
 
 public class Homework4 {
     public static void main(String[] args) {
-
           selectTask();
     }
 
@@ -68,6 +67,7 @@ public class Homework4 {
                     "\n0. Exit the program.");
 
             userChoice = methods.getPositiveIntInput("\nPlease, make your choice.");
+
             switch (userChoice) {
                 case 1:
                     countToNumber(askIntNumber());
@@ -91,11 +91,7 @@ public class Homework4 {
                     System.exit(0);
                     default:
                         System.out.println("Sorry, I didn't get that...");
-
-
             }
-
-
             if (!methods.yesNo("\nDo you wish to repeat?")) repeat =  false;
         }
     }
@@ -133,7 +129,6 @@ public class Homework4 {
             else {
                 countToNumberRecursively(x - 1);
                 System.out.print(x + " ");
-
             }
         } else if (x == 0) System.out.println("Ok, just for you i will count to zero:\n0");
         else System.out.println("Sorry, that number is negative, I don't know how to count it.");
@@ -169,9 +164,8 @@ public class Homework4 {
      * Asks user input of two positive integers and transfers as 3 arguments for recursive drawing.
      */
     static void drawRectangleRecursively() {
-        int a,b;
-        a = methods.getPositiveIntInput("Enter height of a rectangle.");
-        b = methods.getPositiveIntInput("Enter width of a rectangle.");
+        int a = methods.getPositiveIntInput("Enter height of a rectangle.");
+        int b = methods.getPositiveIntInput("Enter width of a rectangle.");
         System.out.println("Height = " + a + ", width = " + b + ".");
         drawRectangleRecursively(a, b, b);
         System.out.println();
@@ -218,13 +212,13 @@ public class Homework4 {
         float floatA = methods.getFloatInput("Enter first number.");
         float floatB = methods.getFloatInput("Enter second number.");
         int intA = (int) floatA, intB = (int) floatB;
+
         System.out.print("Maximum number is: ");
         if ((floatA % intA != 0) && (floatB % intB != 0)) System.out.println(getMax(floatA, floatB));
         if ((floatA % intA != 0) && !(floatB % intB != 0)) System.out.println(getMax(floatA, intB));
         if (!(floatA % intA != 0) && (floatB % intB != 0)) System.out.println(getMax(intA, floatB));
         if (!(floatA % intA != 0) && !(floatB % intB != 0)) System.out.println(getMax(intA, intB));
     }
-
 
     /**
      * @param a Integer number to be compared.
@@ -237,7 +231,7 @@ public class Homework4 {
 
     /**
      * @param a Integer number to be compared.
-     * @param a Integer number to be compared.
+     * @param a Float number to be compared.
      * @return Greater of two numbers.
      */
     static float getMax(int a, float b) {
@@ -245,13 +239,14 @@ public class Homework4 {
     }
 
     /**
-     * @param a Integer number to be compared.
+     * @param a Float number to be compared.
      * @param a Integer number to be compared.
      * @return Greater of two numbers.
      */
     static float getMax(float a, int b) {
         return a >= b ? a : b;
     }
+
     /**
      * @param a Float number to be compared.
      * @param a Float number to be compared.
