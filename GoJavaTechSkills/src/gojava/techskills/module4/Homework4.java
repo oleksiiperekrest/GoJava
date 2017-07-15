@@ -53,15 +53,32 @@ public class Homework4 {
 //        System.out.println("Maximum of two integer numbers: " + getMax(methods.getIntInput("Enter an integer number."),
 //                methods.getIntInput("Enter an integer number.")));
 //        contToNumberRecursively(askIntNumber());
-        int[] array = {4, 5};
-        drawRectangle(array);
-        System.out.println();
-        drawRectangleRecursively(3, 4, 4);
+//        int[] array = {4, 5};
+//        drawRectangle(array);
+//        System.out.println();
+//        drawRectangleRecursively(3, 4, 4);
+        selectTask();
+    }
+
+    static void selectTask() {
+        System.out.println("I greet you, %username." +
+                "\nI am THE MASTER METHOD of this program, I invite you to make a choice.\n");
+        boolean repeat = true;
+        while (repeat) {
+            System.out.println("1. Count from 1 to whatever number you wish." +
+                    "\n2. Count from 1 to whatever, but with RECURSION magic!" +
+                    "\n3. Draw a square with '+' signs size of which you decide." +
+                    "\n4. Draw a rectangle with '+' signs with dimensions of your desire." +
+                    "\n5. Draw a rectangle like one in (3) but with some inner RECURSIVE mojo." +
+                    "\n6. Compare two numbers (int or float) and find out which one is greater.");
+
+
+            System.out.println("Do you wish to repeat? (y/n)");
+        }
     }
 
     /**
      * Asks user to enter a whole number.
-     *
      * @return Integer number entered by user.
      */
     static int askIntNumber() {
@@ -71,7 +88,6 @@ public class Homework4 {
 
     /**
      * Prints natural numbers from 1 to x.
-     *
      * @param x Number to be counted to.
      */
     static void countToNumber(int x) {
@@ -84,6 +100,10 @@ public class Homework4 {
         else System.out.println("Sorry, that number is negative, I don't know how to count it.");
     }
 
+    /**
+     * Prints natural numbers from 1 to x.
+     * @param x Number to be counted to.
+     */
     static void contToNumberRecursively(int x) {
         if (x > 0) {
             if (x == 1) System.out.print("1 ");
@@ -98,7 +118,6 @@ public class Homework4 {
 
     /**
      * Asks user to input two positive integers to be used as sides of a rectangle.
-     *
      * @return Array of 2 positive integers.
      */
     static int[] askRectangleSides() {
@@ -110,7 +129,6 @@ public class Homework4 {
 
     /**
      * Draws a rectangle with '+' signs, length and width defined by an array of 2 positive integers.
-     *
      * @param sides Array of 2 positive integers.
      */
     static void drawRectangle(int[] sides) {
@@ -124,10 +142,23 @@ public class Homework4 {
     }
 
     /**
+     * Control function for drawRectangleRecursively(int height, int width, int resWidth)
+     * Asks user input of two positive integers and transfers as 3 arguments for recursive drawing.
+     */
+    static void drawRectangleRecursively() {
+        int a,b;
+        a = methods.getPositiveIntInput("Enter height of a rectangle.");
+        b = methods.getPositiveIntInput("Enter width of a rectangle.");
+        System.out.println("Height = " + a + ", width = " + b + ".");
+        drawRectangleRecursively(a, b, b);
+        System.out.println();
+    }
+
+    /**
      * Draws a rectangle with '+' signs of assigned height and width to console
      * @param height Height (rows count).
      * @param width Width (column count).
-     * @param resWidth Reserve width. MUST BE EQUAL TO width ↑.
+     * @param resWidth Reserve width for recursive calls. MUST BE EQUAL TO WIDTH ↑.
      */
     static void drawRectangleRecursively(int height, int width, int resWidth) {
         if (height > 0 || width > 0) {
@@ -145,7 +176,6 @@ public class Homework4 {
 
     /**
      * Draws a square with '+' signs, length and width defined by an integer.
-     *
      * @param side Positive integers.
      */
     static void drawRectangle(int side) {
@@ -161,18 +191,35 @@ public class Homework4 {
     /**
      * @param a Integer number to be compared.
      * @param a Integer number to be compared.
-     * @return Larger of two numbers.
+     * @return Greater of two numbers.
      */
-    public static int getMax(int a, int b) {
+    static int getMax(int a, int b) {
         return a >= b ? a : b;
     }
 
     /**
-     * @param a Float number to be compared.
-     * @param a Float number to be compared.
-     * @return Larger of two numbers.
+     * @param a Integer number to be compared.
+     * @param a Integer number to be compared.
+     * @return Greater of two numbers.
      */
-    public static float getMax(float a, float b) {
+    static float getMax(int a, float b) {
+        return a >= b ? a : b;
+    }
+
+    /**
+     * @param a Integer number to be compared.
+     * @param a Integer number to be compared.
+     * @return Greater of two numbers.
+     */
+    static float getMax(float a, int b) {
+        return a >= b ? a : b;
+    }
+    /**
+     * @param a Float number to be compared.
+     * @param a Float number to be compared.
+     * @return Greater of two numbers.
+     */
+    static float getMax(float a, float b) {
         return a >= b ? a : b;
     }
 }
