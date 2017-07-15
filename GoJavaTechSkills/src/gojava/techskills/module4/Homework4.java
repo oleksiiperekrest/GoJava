@@ -62,7 +62,7 @@ public class Homework4 {
                     "\n2. Count from 1 to whatever, but with RECURSION magic!" +
                     "\n3. Draw a square with '+' signs size of which you decide." +
                     "\n4. Draw a rectangle with '+' signs with dimensions of your desire." +
-                    "\n5. Draw a rectangle like one in (3) but with some inner RECURSIVE mojo." +
+                    "\n5. Draw a rectangle like one in (4) but with some inner RECURSIVE mojo." +
                     "\n6. Compare two numbers (int or float) and find out which one is greater." +
                     "\n0. Exit the program.");
 
