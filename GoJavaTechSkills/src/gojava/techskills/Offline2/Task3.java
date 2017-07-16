@@ -1,27 +1,30 @@
 package gojava.techskills.Offline2;
 
 /*
-Задача3
-два инта А и Б
-рекурсивно вывести все числа от А до Б
- */
+Задача 3
+Задача на рекурсию.
+Даны два целых числа A и В (каждое в отдельной строке).
+Выведите все числа от A до B включительно, в порядке возрастания.
+*/
+
 public class Task3 {
     public static void main(String[] args) {
-        countFromAtoB(1,4);
+        countFromAtoB(7, 4);
     }
 
     public static void countFromAtoB(int a, int b) {
-        int start;
         if (a <= b) {
-            start = a;
             if (a == b) System.out.println(b + " ");
             else {
                 System.out.println(a);
                 countFromAtoB(a + 1, b);
             }
-        }
-        else {
-
+        } else {
+            if (a == b) System.out.println(b + " ");
+            else {
+                System.out.println(a);
+                countFromAtoB(a - 1, b);
+            }
         }
     }
 }
