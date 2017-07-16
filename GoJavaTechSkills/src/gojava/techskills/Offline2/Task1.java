@@ -4,8 +4,14 @@ import java.util.Arrays;
 
 /*
 Задача 1
-...
- */
+Написать функцию - findMaxIndex которая принимает на вход массив чисел и возвращает индекс максимального числа.
+
+Написать функцию - findMaxNumber которая принимает на вход массив чисел и возвращает максимальное число,
+используя первую функцию - findMaxIndex.
+
+++
+Перегрузить findMaxIndex и findMaxNumber для работы с int и float
+*/
 public class Task1 {
     public static void main(String[] args) {
         int[] arrayInt = {23, 221, 2, 54, -54, 45, -12, 0, 99};

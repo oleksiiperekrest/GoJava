@@ -2,12 +2,15 @@ package gojava.techskills.Offline2;
 
 /*
 Задача 0
-Написать функцию, которая принимает на вход массив чисел.
-И возвращает минимальное число (return).
+Написать функцию которая принимает на вход массив чисел.
+И возвращает минимальное число (return)
 
 ++
-Функция, которая возвращает число максимально приближенное к среднему числу...
- */
+Функция находит среднее арифметическое от всех элементов массива. Затем, находит элемент массива который максимально приближен к среднему арифметическому.
+Если найдено несколько берем наименьшее.
+
+Пример: {1, 2, 3, 4}  Среднее арифметическое число=2.5 (ответ 2)
+*/
 
 import gojava.techskills.methods;
 
@@ -15,7 +18,6 @@ import java.util.Arrays;
 
 public class Task0 {
     public static void main(String[] args) {
-//        int[] array = {15,2,3,54,7,-12,66,35,32};
 
         int size = methods.getPositiveIntInput("Enter desired array size.");
         int[] array = methods.getIntsArrayInput(size, "Enter " + size + " int numbers.");
