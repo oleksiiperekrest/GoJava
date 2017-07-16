@@ -46,7 +46,7 @@ import gojava.techskills.methods;
 
 public class Homework4 {
     public static void main(String[] args) {
-          selectTask();
+        selectTask();
     }
 
     /**
@@ -89,15 +89,16 @@ public class Homework4 {
                     break;
                 case 0:
                     System.exit(0);
-                    default:
-                        System.out.println("Sorry, I didn't get that...");
+                default:
+                    System.out.println("Sorry, I didn't get that...");
             }
-            if (!methods.yesNo("\nDo you wish to repeat?")) repeat =  false;
+            if (!methods.yesNo("\nDo you wish to repeat?")) repeat = false;
         }
     }
 
     /**
      * Asks user to enter a whole number.
+     *
      * @return Integer number entered by user.
      */
     static int askIntNumber() {
@@ -107,6 +108,7 @@ public class Homework4 {
 
     /**
      * Prints natural numbers from 1 to x.
+     *
      * @param x Number to be counted to.
      */
     static void countToNumber(int x) {
@@ -121,6 +123,7 @@ public class Homework4 {
 
     /**
      * Prints natural numbers from 1 to x.
+     *
      * @param x Number to be counted to.
      */
     static void countToNumberRecursively(int x) {
@@ -136,6 +139,7 @@ public class Homework4 {
 
     /**
      * Asks user to input two positive integers to be used as sides of a rectangle.
+     *
      * @return Array of 2 positive integers.
      */
     static int[] askRectangleSides() {
@@ -147,6 +151,7 @@ public class Homework4 {
 
     /**
      * Draws a rectangle with '+' signs, length and width defined by an array of 2 positive integers.
+     *
      * @param sides Array of 2 positive integers.
      */
     static void drawRectangle(int[] sides) {
@@ -156,7 +161,6 @@ public class Homework4 {
             }
             System.out.println();
         }
-
     }
 
     /**
@@ -173,8 +177,9 @@ public class Homework4 {
 
     /**
      * Draws a rectangle with '+' signs of assigned height and width to console
-     * @param height Height (rows count).
-     * @param width Width (column count).
+     *
+     * @param height   Height (rows count).
+     * @param width    Width (column count).
      * @param resWidth Reserve width for recursive calls. MUST BE EQUAL TO WIDTH ↑.
      */
     static void drawRectangleRecursively(int height, int width, int resWidth) {
@@ -193,6 +198,7 @@ public class Homework4 {
 
     /**
      * Draws a square with '+' signs, length and width defined by an integer.
+     *
      * @param side Positive integers.
      */
     static void drawRectangle(int side) {
