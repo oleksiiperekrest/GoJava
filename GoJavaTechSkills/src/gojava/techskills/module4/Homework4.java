@@ -220,10 +220,8 @@ public class Homework4 {
         int intA = (int) floatA, intB = (int) floatB;
 
         System.out.print("Maximum number is: ");
-        if ((floatA % intA != 0) && (floatB % intB != 0)) System.out.println(getMax(floatA, floatB));
-        if ((floatA % intA != 0) && !(floatB % intB != 0)) System.out.println(getMax(floatA, intB));
-        if (!(floatA % intA != 0) && (floatB % intB != 0)) System.out.println(getMax(intA, floatB));
-        if (!(floatA % intA != 0) && !(floatB % intB != 0)) System.out.println(getMax(intA, intB));
+        if ((floatA % intA == 0) && (floatB % intB == 0)) System.out.println(getMax(intA, intB));
+        else System.out.println(getMax(floatA, floatB));
     }
 
     /**
@@ -232,24 +230,6 @@ public class Homework4 {
      * @return Greater of two numbers.
      */
     static int getMax(int a, int b) {
-        return a >= b ? a : b;
-    }
-
-    /**
-     * @param a Integer number to be compared.
-     * @param b Float number to be compared.
-     * @return Greater of two numbers.
-     */
-    static float getMax(int a, float b) {
-        return a >= b ? a : b;
-    }
-
-    /**
-     * @param a Float number to be compared.
-     * @param b Integer number to be compared.
-     * @return Greater of two numbers.
-     */
-    static float getMax(float a, int b) {
         return a >= b ? a : b;
     }
 
