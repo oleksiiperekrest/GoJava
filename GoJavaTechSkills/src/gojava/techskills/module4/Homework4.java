@@ -44,7 +44,7 @@ package gojava.techskills.module4;
 
 import gojava.techskills.methods;
 
-public class Homework4 {
+class Homework4 {
     public static void main(String[] args) {
         selectTask();
     }
@@ -52,7 +52,7 @@ public class Homework4 {
     /**
      * User menu method for all the methods in this class.
      */
-    static void selectTask() {
+    private static void selectTask() {
         System.out.println("I greet you, %username." +
                 "\nI am THE MASTER METHOD of this program, I invite you to make a choice.\n");
         boolean repeat = true;
@@ -70,22 +70,22 @@ public class Homework4 {
 
             switch (userChoice) {
                 case 1:
-                    countToNumber(askIntNumber());
+                    CountToNumber.countToNumber(CountToNumber.askIntNumber());
                     break;
                 case 2:
-                    countToNumberRecursively(askIntNumber());
+                    CountToNumber.countToNumberRecursively(CountToNumber.askIntNumber());
                     break;
                 case 3:
-                    drawRectangle(methods.getPositiveIntInput("Enter side length of a square."));
+                    DrawRectangle.drawRectangle(methods.getPositiveIntInput("Enter side length of a square."));
                     break;
                 case 4:
-                    drawRectangle(askRectangleSides());
+                    DrawRectangle.drawRectangle(DrawRectangle.askRectangleSides());
                     break;
                 case 5:
-                    drawRectangleRecursively();
+                    DrawRectangle.drawRectangleRecursively();
                     break;
                 case 6:
-                    compareTwoNumbers();
+                    CompareTwoNumbers.compareTwoNumbers();
                     break;
                 case 0:
                     System.exit(0);
@@ -96,149 +96,4 @@ public class Homework4 {
         }
     }
 
-    /**
-     * Asks user to enter a whole number.
-     *
-     * @return Integer number entered by user.
-     */
-    static int askIntNumber() {
-        System.out.print("Enter a whole number: ");
-        return methods.getIntInput();
-    }
-
-    /**
-     * Prints natural numbers from 1 to x.
-     *
-     * @param x Number to be counted to.
-     */
-    static void countToNumber(int x) {
-        if (x > 0) {
-            for (int i = 0; i < x; i++) {
-                System.out.print(i + 1 + " ");
-            }
-            System.out.println();
-        } else if (x == 0) System.out.println("Ok, just for you i will count to zero:\n0");
-        else System.out.println("Sorry, that number is negative, I don't know how to count it.");
-    }
-
-    /**
-     * Prints natural numbers from 1 to x.
-     *
-     * @param x Number to be counted to.
-     */
-    static void countToNumberRecursively(int x) {
-        if (x > 0) {
-            if (x == 1) System.out.print("1 ");
-            else {
-                countToNumberRecursively(x - 1);
-                System.out.print(x + " ");
-            }
-        } else if (x == 0) System.out.println("Ok, just for you i will count to zero:\n0");
-        else System.out.println("Sorry, that number is negative, I don't know how to count it.");
-    }
-
-    /**
-     * Asks user to input two positive integers to be used as sides of a rectangle.
-     *
-     * @return Array of 2 positive integers.
-     */
-    static int[] askRectangleSides() {
-        int[] sides = new int[2];
-        sides[0] = methods.getPositiveIntInput("Enter length of a rectangle.");
-        sides[1] = methods.getPositiveIntInput("Enter width of a rectangle.");
-        return sides;
-    }
-
-    /**
-     * Draws a rectangle with '+' signs, length and width defined by an array of 2 positive integers.
-     *
-     * @param sides Array of 2 positive integers.
-     */
-    static void drawRectangle(int[] sides) {
-        for (int i = 0; i < sides[0]; i++) {
-            for (int j = 0; j < sides[1]; j++) {
-                System.out.print("+ ");
-            }
-            System.out.println();
-        }
-    }
-
-    /**
-     * Control function for drawRectangleRecursively(int height, int width, int resWidth)
-     * Asks user input of two positive integers and transfers as 3 arguments for recursive drawing.
-     */
-    static void drawRectangleRecursively() {
-        int a = methods.getPositiveIntInput("Enter height of a rectangle.");
-        int b = methods.getPositiveIntInput("Enter width of a rectangle.");
-        System.out.println("Height = " + a + ", width = " + b + ".");
-        drawRectangleRecursively(a, b, b);
-        System.out.println();
-    }
-
-    /**
-     * Draws a rectangle with '+' signs of assigned height and width to console
-     *
-     * @param height   Height (rows count).
-     * @param width    Width (column count).
-     * @param resWidth Reserve width for recursive calls. MUST BE EQUAL TO WIDTH ↑.
-     */
-    static void drawRectangleRecursively(int height, int width, int resWidth) {
-        if (height > 0 || width > 0) {
-            if (width > 0) {
-                System.out.print("+ ");
-                drawRectangleRecursively(height, width - 1, resWidth);
-                return;
-            }
-            if (height > 1) {
-                System.out.println();
-                drawRectangleRecursively(height - 1, resWidth, resWidth);
-            }
-        }
-    }
-
-    /**
-     * Draws a square with '+' signs, length and width defined by an integer.
-     *
-     * @param side Positive integers.
-     */
-    static void drawRectangle(int side) {
-
-        for (int i = 0; i < side; i++) {
-            for (int j = 0; j < side; j++) {
-                System.out.print("+ ");
-            }
-            System.out.println();
-        }
-    }
-
-    /**
-     * Gets input of two numbers and calls getMax() to compare them and print out greater of them.
-     */
-    static void compareTwoNumbers() {
-        float floatA = methods.getFloatInput("Enter first number.");
-        float floatB = methods.getFloatInput("Enter second number.");
-        int intA = (int) floatA, intB = (int) floatB;
-
-        System.out.print("Maximum number is: ");
-        if ((floatA % intA == 0) && (floatB % intB == 0)) System.out.println(getMax(intA, intB));
-        else System.out.println(getMax(floatA, floatB));
-    }
-
-    /**
-     * @param a Integer number to be compared.
-     * @param b Integer number to be compared.
-     * @return Greater of two numbers.
-     */
-    static int getMax(int a, int b) {
-        return a >= b ? a : b;
-    }
-
-    /**
-     * @param a Float number to be compared.
-     * @param b Float number to be compared.
-     * @return Greater of two numbers.
-     */
-    static float getMax(float a, float b) {
-        return a >= b ? a : b;
-    }
 }
