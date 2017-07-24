@@ -253,7 +253,7 @@ public class Car {
     }
 
     void printCarInfo() {
-        System.out.println("Car production year: " + productionYear +
+        System.out.println("Car production year: " + productionYear + ";" +
                 "\nCar engine type: " + engineType + ";" +
                 "\nMaximal speed(technically): " + maxSpeed + " km/h;" +
                 "\nCurrent speed: " + currentSpeed + " km/h;" +
