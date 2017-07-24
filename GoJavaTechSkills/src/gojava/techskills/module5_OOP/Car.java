@@ -192,6 +192,16 @@ public class Car {
         return doors[index];
     }
 
+
+
+    void printDoorsState() {
+        System.out.println("There are " + doors.length + " doors.");
+        for (int i = 0; i < doors.length; i++) {
+            System.out.print("Door #" + i + ": ");
+            doors[i].printDoorState();
+        }
+    }
+
     CarWheel getCarWheel(int index) throws IndexOutOfBoundsException {
         return wheels[index];
     }
@@ -252,6 +262,7 @@ public class Car {
                 "\nCurrently passengers in: " + passengersCurrent + ";");
 
         printWheelsState();
+        printDoorsState();
         System.out.printf("Current maximum speed: %.2f km/h.", calculateCurrentMaxSpeed());
     }
 }
