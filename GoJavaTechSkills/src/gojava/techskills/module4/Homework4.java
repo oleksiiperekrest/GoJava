@@ -53,18 +53,27 @@ class Homework4 {
      * User menu method for all the methods in this class.
      */
     private static void selectTask() {
-        System.out.println("I greet you, %username." +
-                "\nI am THE MASTER METHOD of this program, I invite you to make a choice.\n");
         boolean repeat = true;
         int userChoice;
-        while (repeat) {
-            System.out.println("1. Count from 1 to whatever number you wish." +
-                    "\n2. Count from 1 to whatever, but with RECURSION magic!" +
-                    "\n3. Draw a square with '+' signs size of which you decide." +
-                    "\n4. Draw a rectangle with '+' signs with dimensions of your desire." +
-                    "\n5. Draw a rectangle like one in (4) but with some inner RECURSIVE mojo." +
-                    "\n6. Compare two numbers (int or float) and find out which one is greater." +
-                    "\n0. Exit the program.");
+        String greetingMessage = "I greet you, %username." +
+                "\nI am THE MASTER METHOD of this program, I invite you to make a choice.\n";
+        String line1 = "1. Count from 1 to whatever number you wish.";
+        String line2 = "2. Count from 1 to whatever, but with RECURSION magic!";
+        String line3 = "3. Draw a square with '+' signs size of which you decide.";
+        String line4 = "4. Draw a rectangle with '+' signs with dimensions of your desire.";
+        String line5 = "5. Draw a rectangle like one in (4) but with some inner RECURSIVE mojo.";
+        String line6 = "6. Compare two numbers (int or float) and find out which one is greater.";
+        String line0 = "0. Exit the program.";
+
+        System.out.println(greetingMessage);
+        do {
+            System.out.println(line1);
+            System.out.println(line2);
+            System.out.println(line3);
+            System.out.println(line4);
+            System.out.println(line5);
+            System.out.println(line6);
+            System.out.println(line0);
 
             userChoice = methods.getPositiveIntInput("\nPlease, make your choice.");
 
@@ -89,11 +98,13 @@ class Homework4 {
                     break;
                 case 0:
                     System.exit(0);
+                    break;
                 default:
                     System.out.println("Sorry, I didn't get that...");
             }
             if (!methods.yesNo("\nDo you wish to repeat?")) repeat = false;
         }
+        while (repeat);
     }
 
 }
