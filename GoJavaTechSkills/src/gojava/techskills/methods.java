@@ -75,6 +75,24 @@ public class methods {
         }
     }
 
+    public static int getBoundIntInput(String message, String errorMessage, int lowerBound, int upperBound) {
+        System.out.println(message);
+        Scanner input = new Scanner(System.in);
+
+        while (true) {
+            String line = input.nextLine();
+            try {
+                int n = Integer.parseInt(line);
+                if (n >= lowerBound && n <= upperBound) {
+                    return n;
+                }
+            } catch (NumberFormatException e) {
+
+            }
+            System.out.print(errorMessage);
+        }
+    }
+
     /**
      * @return An float number input by user.
      */
@@ -115,6 +133,24 @@ public class methods {
             input.next();
         }
         return input.nextDouble();
+    }
+
+    public static double getPositiveDoubleInput(String message) {
+        System.out.println(message);
+        Scanner input = new Scanner(System.in);
+
+        while (true) {
+            String line = input.nextLine();
+            try {
+                double d = Double.parseDouble(line);
+                if (d >= 0.0) {
+                    return d;
+                }
+            } catch (NumberFormatException e) {
+
+            }
+            System.out.print("(Enter a positive number!)\n" + message);
+        }
     }
 
     /**
