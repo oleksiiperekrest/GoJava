@@ -56,6 +56,25 @@ public class methods {
         }
     }
 
+    public static int getBoundIntInput(String message, int lowerBound, int upperBound) {
+        System.out.println(message);
+        Scanner input = new Scanner(System.in);
+
+        while (true) {
+            String line = input.nextLine();
+            try {
+                int n = Integer.parseInt(line);
+                if (n >= lowerBound && n <= upperBound) {
+                    return n;
+                }
+            } catch (NumberFormatException e) {
+
+            }
+            System.out.print("(Enter a positive whole number between " + lowerBound + " and " + upperBound +
+                    "!)\n" + message);
+        }
+    }
+
     /**
      * @return An float number input by user.
      */
@@ -81,6 +100,21 @@ public class methods {
             input.next();
         }
         return input.nextFloat();
+    }
+
+    /**
+     *
+     * @param message Message shown to user to invite input.
+     * @return An float number input by user.
+     */
+    public static double getDoubleInput(String message) {
+        System.out.println(message);
+        Scanner input = new Scanner(System.in);
+        while (!input.hasNextDouble()) {
+            System.out.println("(Enter a number!)");
+            input.next();
+        }
+        return input.nextDouble();
     }
 
     /**
