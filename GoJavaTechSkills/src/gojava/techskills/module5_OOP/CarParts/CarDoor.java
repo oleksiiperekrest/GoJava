@@ -103,16 +103,16 @@ public class CarDoor {
     /**
      * Prints to console states of both door and window (open/closed).
      */
-    void printDoorState() {
+    public void printDoorState() {
         if (doorIsOpen)
-            System.out.println("The door is open.");
+            System.out.print("The door is open,");
         else
-            System.out.println("The door is closed.");
+            System.out.print("The door is closed,");
 
         if (windowIsOpen)
-            System.out.println("The window is open.");
+            System.out.println(" the window is open.");
         else
-            System.out.println("The window is closed.");
+            System.out.println(" the window is closed.");
     }
 
 
