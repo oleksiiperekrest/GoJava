@@ -99,13 +99,15 @@ public class Homework5 {
 
     public static void main(String[] args) {
 
-
-        System.out.println("Car current speed = " + car.getCurrentSpeed());
-        setCarCurrentSpeed(car);
-        System.out.println("Car current speed = " + car.getCurrentSpeed());
-        damageWheel(car);
-        setCarCurrentSpeed(car);
-        System.out.println("Car current speed = " + car.getCurrentSpeed());
+        car = createCar();
+        car.printCarInfo();
+//
+//        System.out.println("Car current speed = " + car.getCurrentSpeed());
+//        setCarCurrentSpeed(car);
+//        System.out.println("Car current speed = " + car.getCurrentSpeed());
+//        damageWheel(car);
+//        setCarCurrentSpeed(car);
+//        System.out.println("Car current speed = " + car.getCurrentSpeed());
 
 //        car.printWheelsState();
 //        System.out.println("Max speed: " + car.calculateCurrentMaxSpeed());
@@ -117,6 +119,9 @@ public class Homework5 {
 
     }
 
+    private static Car createCar() {
+        return CreateCar.createCar();
+    }
 
     private static void setCarCurrentSpeed(Car car) {
         double speed = methods.getDoubleInput("Enter new current speed.");
