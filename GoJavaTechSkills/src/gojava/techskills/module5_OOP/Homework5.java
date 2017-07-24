@@ -94,10 +94,11 @@ import gojava.techskills.methods;
 import java.util.Scanner;
 
 public class Homework5 {
-    private static Scanner in = new Scanner(System.in);
+    static Scanner in = new Scanner(System.in);
+    static Car car;
 
     public static void main(String[] args) {
-        Car car = new Car(2000);
+
 
         System.out.println("Car current speed = " + car.getCurrentSpeed());
         setCarCurrentSpeed(car);
@@ -116,19 +117,6 @@ public class Homework5 {
 
     }
 
-    private static void createCarMenu() {
-        String greetingMessage = "Hello, please make a choice.";
-        String line1 = "1. Create a new car with default properties (year of production must be entered).";
-        String line2 = "2. Create a new car with 4 doors and 4 wheels, all other attributes must be entered.";
-        String line3 = "3. Create a new car, with all attributes entered by user.";
-        String line0 = "0. Exit program.";
-
-        System.out.println(greetingMessage);
-        System.out.println(line1);
-        System.out.println(line2);
-        System.out.println(line3);
-        System.out.println(line0);
-    }
 
     private static void setCarCurrentSpeed(Car car) {
         double speed = methods.getDoubleInput("Enter new current speed.");
