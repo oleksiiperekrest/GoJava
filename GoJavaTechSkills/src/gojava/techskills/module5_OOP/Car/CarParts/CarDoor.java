@@ -1,4 +1,4 @@
-package gojava.techskills.module5_OOP.CarParts;
+package gojava.techskills.module5_OOP.Car.CarParts;
 
 /*
 Класс CarDoor
@@ -48,7 +48,8 @@ public class CarDoor {
 
     /**
      * Constructor with boolean parameters for state of door and window (open/closed).
-     * @param doorIsOpen State of door.
+     *
+     * @param doorIsOpen   State of door.
      * @param windowIsOpen State of window.
      */
     CarDoor(boolean doorIsOpen, boolean windowIsOpen) {
@@ -61,42 +62,42 @@ public class CarDoor {
     /**
      * Opens the door.
      */
-    void openDoor() {
+    public void openDoor() {
         doorIsOpen = true;
     }
 
     /**
      * Closes the door.
      */
-    void closeDoor() {
+    public void closeDoor() {
         doorIsOpen = false;
     }
 
     /**
      * Reverses state of the door. Opens if was closed, closes if was open.
      */
-    void toggleDoor() {
+    public void toggleDoor() {
         doorIsOpen = !doorIsOpen;
     }
 
     /**
      * Opens the window.
      */
-    void openWindow() {
+    public void openWindow() {
         windowIsOpen = true;
     }
 
     /**
      * Closes the window.
      */
-    void closeWindow() {
+    public void closeWindow() {
         windowIsOpen = false;
     }
 
     /**
      * Reverses state of the window. Opens if was closed, closes if was open.
      */
-    void toggleWindow() {
+    public void toggleWindow() {
         windowIsOpen = !doorIsOpen;
     }
 

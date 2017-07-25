@@ -89,61 +89,23 @@ package gojava.techskills.module5_OOP;
 Кол-во различных действий = кол-ву функций в ДЗ.
 */
 
-import gojava.techskills.methods;
-
-import java.util.Scanner;
+import gojava.techskills.module5_OOP.Car.Car;
+import gojava.techskills.module5_OOP.Car.CarActions;
+import gojava.techskills.module5_OOP.Car.CreateCar;
 
 public class Homework5 {
-    static Scanner in = new Scanner(System.in);
-    static Car car;
 
     public static void main(String[] args) {
 
-        car = createCar();
-        car.printCarInfo();
-//
-//        System.out.println("Car current speed = " + car.getCurrentSpeed());
-//        setCarCurrentSpeed(car);
-//        System.out.println("Car current speed = " + car.getCurrentSpeed());
-//        damageWheel(car);
-//        setCarCurrentSpeed(car);
-//        System.out.println("Car current speed = " + car.getCurrentSpeed());
+        Car car = createCar();
 
-//        car.printWheelsState();
-//        System.out.println("Max speed: " + car.calculateCurrentMaxSpeed());
-//        System.out.println("\nAttempting to damage one wheel.");
-//        damageWheel(car);
-//        car.printWheelsState();
-//        System.out.println("Current max speed: " + car.calculateCurrentMaxSpeed());
-//        car.printCarInfo();
-
+        CarActions.carActions(car);
     }
 
     private static Car createCar() {
         return CreateCar.createCar();
     }
 
-    private static void setCarCurrentSpeed(Car car) {
-        double speed = methods.getDoubleInput("Enter new current speed.");
-        try {
-            car.setCurrentSpeed(speed);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            setCarCurrentSpeed(car);
-        }
-    }
-
-    private static void damageWheel(Car car) {
-        int index = methods.getBoundIntInput
-                ("Enter index of a wheel.", 0, car.getWheelsQuantity() - 1);
-        double damage = methods.getDoubleInput("Enter value of damage");
-        try {
-            car.damageWheel(index, damage);
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            damageWheel(car);
-        }
-    }
-
 }
+
+

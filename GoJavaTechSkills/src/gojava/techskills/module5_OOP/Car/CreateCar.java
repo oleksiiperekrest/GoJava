@@ -1,4 +1,4 @@
-package gojava.techskills.module5_OOP;
+package gojava.techskills.module5_OOP.Car;
 
 import gojava.techskills.methods;
 
@@ -9,13 +9,11 @@ public class CreateCar {
     private static double maxSpeedHolder;
     private static int passengerCapacityHolder;
     private static int menuLength = 4;
-    static Car createCar() {
+
+    public static Car createCar() {
         menuCreateCar();
 
-        int userChoice = methods.getBoundIntInput(
-                "Please make your choice.",
-                "(Please enter an integer between 0 and " + (menuLength - 1 ) + ")",
-                0, menuLength-1);
+        int userChoice = methods.getPositiveIntInput("Please make your choice.");
 
         switch (userChoice) {
             case 1:
@@ -32,7 +30,7 @@ public class CreateCar {
                 return null;
 //                break;
             default:
-                System.out.println("Sorry, I didn't get that...");
+                System.out.println("(Please enter an integer between 0 and " + (menuLength - 1) + ")");
                 return createCar();
         }
     }
@@ -46,9 +44,9 @@ public class CreateCar {
         lines[0] = "0. Exit program.";
 
         System.out.println(greetingMessage);
-        System.out.println(lines[1]);
-        System.out.println(lines[2]);
-        System.out.println(lines[3]);
+        for (int i = 1; i < menuLength; i++) {
+            System.out.println(lines[i]);
+        }
         System.out.println(lines[0]);
     }
 
@@ -80,11 +78,11 @@ public class CreateCar {
 
     private static String inputEngineType() {
         System.out.println("Please enter engine type of the car.");
-        return Homework5.in.nextLine();
+        return methods.obtainStringInput();
     }
 
     private static double inputMaxSpeed() {
-        return maxSpeedHolder =  methods.getPositiveDoubleInput("Please enter max speed of the car in km/h");
+        return maxSpeedHolder = methods.getPositiveDoubleInput("Please enter max speed of the car in km/h");
     }
 
     private static double inputCurrentSpeed() {

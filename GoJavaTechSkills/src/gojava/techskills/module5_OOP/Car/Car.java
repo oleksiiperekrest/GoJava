@@ -1,4 +1,4 @@
-package gojava.techskills.module5_OOP;
+package gojava.techskills.module5_OOP.Car;
 
 /*
 Класс CarParts.
@@ -40,8 +40,8 @@ package gojava.techskills.module5_OOP;
 и наличия водителя)
 */
 
-import gojava.techskills.module5_OOP.CarParts.CarDoor;
-import gojava.techskills.module5_OOP.CarParts.CarWheel;
+import gojava.techskills.module5_OOP.Car.CarParts.CarDoor;
+import gojava.techskills.module5_OOP.Car.CarParts.CarWheel;
 
 public class Car {
 
@@ -100,8 +100,8 @@ public class Car {
      * @param passengersCapacity  Passenger capacity (driver included).
      * @param passengersCurrent   Current passengers in the car (driver included).
      */
-    public Car(int productionYear, String engineType, double maxSpeed, double currentSpeed, double acceleration100Time,
-               int passengersCapacity, int passengersCurrent) {
+    Car(int productionYear, String engineType, double maxSpeed, double currentSpeed, double acceleration100Time,
+        int passengersCapacity, int passengersCurrent) {
         this.productionYear = productionYear;
         this.engineType = engineType;
         this.maxSpeed = maxSpeed;
@@ -134,8 +134,8 @@ public class Car {
      * @param wheelsQuantity      Quantity of wheels on the car.
      * @param doorsQuantity       Quantity of doors on the car.
      */
-    public Car(int productionYear, String engineType, double maxSpeed, double currentSpeed, double acceleration100Time,
-               int passengersCapacity, int passengersCurrent, int wheelsQuantity, int doorsQuantity) {
+    Car(int productionYear, String engineType, double maxSpeed, double currentSpeed, double acceleration100Time,
+        int passengersCapacity, int passengersCurrent, int wheelsQuantity, int doorsQuantity) {
         this.productionYear = productionYear;
         this.engineType = engineType;
         this.maxSpeed = maxSpeed;
@@ -156,6 +156,10 @@ public class Car {
 
     //methods
 
+    double getCurrentSpeed() {
+        return currentSpeed;
+    }
+
     /**
      * Sets new current speed.
      *
@@ -168,17 +172,13 @@ public class Car {
         } else throw new Exception("Value out of bounds (0.0 to " + calculateCurrentMaxSpeed() + ")!");
     }
 
-    double getCurrentSpeed() {
-        return currentSpeed;
-    }
-
     void addOnePassenger() {
         if (passengersCurrent < passengersCapacity)
             passengersCurrent++;
         else System.out.println("No more room for another passenger!");
     }
 
-    void removeOnePassenger() {
+    void dropOffOnePassenger() {
         if (passengersCurrent > 0)
             passengersCurrent--;
         else System.out.println("No passengers left, no one to drop off!");
@@ -188,10 +188,39 @@ public class Car {
         passengersCurrent = 0;
     }
 
+
+    int getDoorsQuantity() {
+        return doorsQuantity;
+    }
+
     CarDoor getCarDoor(int index) throws IndexOutOfBoundsException {
         return doors[index];
     }
 
+    void openDoor(int index) throws IndexOutOfBoundsException {
+        doors[index].openDoor();
+    }
+
+    void closeDoor(int index) throws IndexOutOfBoundsException {
+        doors[index].closeDoor();
+    }
+
+    void toggleDoor(int index) throws IndexOutOfBoundsException {
+        doors[index].toggleDoor();
+    }
+
+
+    void openWindow(int index) throws IndexOutOfBoundsException {
+        doors[index].openWindow();
+    }
+
+    void closeWindow(int index) throws IndexOutOfBoundsException {
+        doors[index].closeWindow();
+    }
+
+    void toggleWindow(int index) throws IndexOutOfBoundsException {
+        doors[index].toggleWindow();
+    }
 
 
     void printDoorsState() {
@@ -200,6 +229,11 @@ public class Car {
             System.out.print("Door #" + i + ": ");
             doors[i].printDoorState();
         }
+    }
+
+
+    int getWheelsQuantity() {
+        return wheelsQuantity;
     }
 
     CarWheel getCarWheel(int index) throws IndexOutOfBoundsException {
@@ -239,6 +273,10 @@ public class Car {
         }
     }
 
+    void renewWheel(int index) throws IndexOutOfBoundsException {
+        wheels[index].renewWheel();
+    }
+
     double calculateCurrentMaxSpeed() {
         if (passengersCurrent == 0) return 0;
         double minWheelHealth = wheels[0].getWheelHealth();
@@ -248,21 +286,17 @@ public class Car {
         return maxSpeed * minWheelHealth;
     }
 
-    int getWheelsQuantity() {
-        return wheelsQuantity;
-    }
 
     void printCarInfo() {
-        System.out.println("Car production year: " + productionYear + ";" +
-                "\nCar engine type: " + engineType + ";" +
-                "\nMaximal speed(technically): " + maxSpeed + " km/h;" +
-                "\nCurrent speed: " + currentSpeed + " km/h;" +
-                "\nAcceleration to 100 km/h: " + acceleration100Time + " seconds;" +
-                "\nPassengers capacity: " + passengersCapacity + ";" +
-                "\nCurrently passengers in: " + passengersCurrent + ";");
-
+        System.out.println("Car production year: " + productionYear + ";");
+        System.out.println("Car engine type: " + engineType + ";");
+        System.out.printf("Maximal speed(technically): %.2f km/h;\n", maxSpeed);
+        System.out.printf("Current speed: %.2f km/h;\n", currentSpeed);
+        System.out.printf("Acceleration to 100 km/h: %.2f seconds;\n", acceleration100Time);
+        System.out.println("Passengers capacity: " + passengersCapacity + ";");
+        System.out.println("Currently passengers in: " + passengersCurrent + ";");
         printWheelsState();
         printDoorsState();
-        System.out.printf("Current maximum speed: %.2f km/h.", calculateCurrentMaxSpeed());
+        System.out.printf("Current maximum speed: %.2f km/h.\n", calculateCurrentMaxSpeed());
     }
 }

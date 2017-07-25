@@ -1,4 +1,4 @@
-package gojava.techskills.module5_OOP.CarParts;
+package gojava.techskills.module5_OOP.Car.CarParts;
 
 /*
 Класс CarWheel
@@ -52,7 +52,7 @@ public class CarWheel {
     /**
      * Wheel is now new with 100% health.
      */
-    void renewWheel() {
+    public void renewWheel() {
         wheelHealth = 1.0;
     }
 
@@ -83,7 +83,7 @@ public class CarWheel {
         else if (wheelHealth == 1.0)
             System.out.println("The wheel is totally new and undamaged.");
         else {
-            System.out.printf("The wheel is at %.2f%% durability.\n", wheelHealth*100);
+            System.out.printf("The wheel is at %.2f%% durability.\n", wheelHealth * 100);
         }
     }
 }
