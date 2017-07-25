@@ -6,6 +6,12 @@ import java.util.Scanner;
  * Here will lie all the everyday-useful methods.
  */
 public class methods {
+    private static Scanner input = new Scanner(System.in);
+
+    public static String obtainStringInput() {
+        return input.nextLine();
+    }
+
 
     /**
      * @return An integer input from the user.
@@ -24,7 +30,6 @@ public class methods {
      */
     public static int getIntInput(String message) {
         System.out.println(message);
-        Scanner input = new Scanner(System.in);
         while (!input.hasNextInt()) {
             System.out.println("(Enter a whole number!)");
             input.next();
@@ -40,8 +45,6 @@ public class methods {
      */
     public static int getPositiveIntInput(String message) {
         System.out.println(message);
-        Scanner input = new Scanner(System.in);
-
         while (true) {
             String line = input.nextLine();
             try {
@@ -58,7 +61,6 @@ public class methods {
 
     public static int getBoundIntInput(String message, int lowerBound, int upperBound) {
         System.out.println(message);
-        Scanner input = new Scanner(System.in);
 
         while (true) {
             String line = input.nextLine();
@@ -77,7 +79,6 @@ public class methods {
 
     public static int getBoundIntInput(String message, String errorMessage, int lowerBound, int upperBound) {
         System.out.println(message);
-        Scanner input = new Scanner(System.in);
 
         while (true) {
             String line = input.nextLine();
@@ -97,7 +98,6 @@ public class methods {
      * @return An float number input by user.
      */
     public static float getFloatInput() {
-        Scanner input = new Scanner(System.in);
         while (!input.hasNextFloat()) {
             System.out.println("(Enter a number!)");
             input.next();
@@ -112,7 +112,6 @@ public class methods {
      */
     public static float getFloatInput(String message) {
         System.out.println(message);
-        Scanner input = new Scanner(System.in);
         while (!input.hasNextFloat()) {
             System.out.println("(Enter a number!)");
             input.next();
@@ -127,7 +126,6 @@ public class methods {
      */
     public static double getDoubleInput(String message) {
         System.out.println(message);
-        Scanner input = new Scanner(System.in);
         while (!input.hasNextDouble()) {
             System.out.println("(Enter a number!)");
             input.next();
@@ -137,7 +135,6 @@ public class methods {
 
     public static double getPositiveDoubleInput(String message) {
         System.out.println(message);
-        Scanner input = new Scanner(System.in);
 
         while (true) {
             String line = input.nextLine();
@@ -186,7 +183,6 @@ public class methods {
     }
 
     public static boolean yesNo(String message) {
-        Scanner input = new Scanner(System.in);
         String line;
         boolean yn;
 
