@@ -43,11 +43,14 @@ package gojava.techskills.module5_OOP.Car;
 import gojava.techskills.module5_OOP.Car.CarParts.CarDoor;
 import gojava.techskills.module5_OOP.Car.CarParts.CarWheel;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Car {
 
     //variables
 
-    private int productionYear;
+    private Calendar productionDate;
     private String engineType = "Petrol";
 
     private double maxSpeed = 160.0;
@@ -75,10 +78,10 @@ public class Car {
      * All other parameters are defaults: petrol engine, max speed 160 km/h, 10 seconds acceleration to 100rm/h,
      * 5 passenger capacity, 1 current passenger (driver), 4 doors, 4 wheels.
      *
-     * @param productionYear Year of production of the car.
+     * @param productionDate Year of production of the car.
      */
-    Car(int productionYear) {
-        this.productionYear = productionYear;
+    Car(Calendar productionDate) {
+        this.productionDate = productionDate;
         wheels = new CarWheel[wheelsQuantity];
         for (int i = 0; i < wheels.length; i++) {
             wheels[i] = new CarWheel();
@@ -92,7 +95,7 @@ public class Car {
     /**
      * Creates a new car with defined parameters. It would have 4 wheels and 4 doors.
      *
-     * @param productionYear      Year of production of the car.
+     * @param productionDate      Year of production of the car.
      * @param engineType          Engine type.
      * @param maxSpeed            Maximal speed in km/h.
      * @param currentSpeed        Current speed in km/h.
@@ -100,9 +103,9 @@ public class Car {
      * @param passengersCapacity  Passenger capacity (driver included).
      * @param passengersCurrent   Current passengers in the car (driver included).
      */
-    Car(int productionYear, String engineType, double maxSpeed, double currentSpeed, double acceleration100Time,
+    Car(Calendar productionDate, String engineType, double maxSpeed, double currentSpeed, double acceleration100Time,
         int passengersCapacity, int passengersCurrent) {
-        this.productionYear = productionYear;
+        this.productionDate = productionDate;
         this.engineType = engineType;
         this.maxSpeed = maxSpeed;
         this.currentSpeed = currentSpeed;
@@ -124,7 +127,7 @@ public class Car {
      * /**
      * Creates a new car with defined parameters.
      *
-     * @param productionYear      Year of production of the car.
+     * @param productionDate      Year of production of the car.
      * @param engineType          Engine type.
      * @param maxSpeed            Maximal speed in km/h.
      * @param currentSpeed        Current speed in km/h.
@@ -134,9 +137,9 @@ public class Car {
      * @param wheelsQuantity      Quantity of wheels on the car.
      * @param doorsQuantity       Quantity of doors on the car.
      */
-    Car(int productionYear, String engineType, double maxSpeed, double currentSpeed, double acceleration100Time,
+    Car(Calendar productionDate, String engineType, double maxSpeed, double currentSpeed, double acceleration100Time,
         int passengersCapacity, int passengersCurrent, int wheelsQuantity, int doorsQuantity) {
-        this.productionYear = productionYear;
+        this.productionDate = productionDate;
         this.engineType = engineType;
         this.maxSpeed = maxSpeed;
         this.currentSpeed = currentSpeed;
@@ -232,15 +235,15 @@ public class Car {
     }
 
 
-    int getWheelsQuantity() {
-        return wheelsQuantity;
+    public int getWheelsQuantity() {
+        return wheels.length;
     }
 
     CarWheel getCarWheel(int index) throws IndexOutOfBoundsException {
         return wheels[index];
     }
 
-    void removeAllWheels() {
+    public void removeAllWheels() {
         wheels = new CarWheel[0];
     }
 
@@ -259,9 +262,11 @@ public class Car {
 
     void printWheelsState() {
         System.out.println("There are " + wheels.length + " wheels.");
-        for (int i = 0; i < wheels.length; i++) {
-            System.out.print("Wheel #" + i + ": ");
-            wheels[i].printWheelState();
+        if (wheels.length != 0) {
+            for (int i = 0; i < wheels.length; i++) {
+                System.out.print("Wheel #" + i + ": ");
+                wheels[i].printWheelState();
+            }
         }
     }
 
@@ -279,16 +284,20 @@ public class Car {
 
     double calculateCurrentMaxSpeed() {
         if (passengersCurrent == 0) return 0;
-        double minWheelHealth = wheels[0].getWheelHealth();
-        for (int i = 1; i < wheels.length; i++) {
-            minWheelHealth = minWheelHealth > wheels[i].getWheelHealth() ? wheels[i].getWheelHealth() : minWheelHealth;
+        double minWheelHealth = 0;
+        if (wheels.length != 0) {
+        minWheelHealth = wheels[0].getWheelHealth();
+
+            for (int i = 1; i < wheels.length; i++) {
+                minWheelHealth = minWheelHealth > wheels[i].getWheelHealth() ? wheels[i].getWheelHealth() : minWheelHealth;
+            }
         }
         return maxSpeed * minWheelHealth;
     }
 
 
     void printCarInfo() {
-        System.out.println("Car production year: " + productionYear + ";");
+        System.out.println("Car production date: " + productionDate.getTime() + ";");
         System.out.println("Car engine type: " + engineType + ";");
         System.out.printf("Maximal speed(technically): %.2f km/h;\n", maxSpeed);
         System.out.printf("Current speed: %.2f km/h;\n", currentSpeed);

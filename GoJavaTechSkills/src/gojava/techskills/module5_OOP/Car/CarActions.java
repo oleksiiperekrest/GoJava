@@ -179,10 +179,12 @@ public class CarActions {
 
 
     private static void changeWheelState(Car car) {
-        int index = selectWheel(car);
+        if (car.getWheelsQuantity() != 0) {
+            int index = selectWheel(car);
 
-        menuWheelActions();
-        selectWheelAction(car, index);
+            menuWheelActions();
+            selectWheelAction(car, index);
+        } else System.out.println("There are no wheels!");
 
     }
 
@@ -206,31 +208,33 @@ public class CarActions {
     }
 
     private static void selectWheelAction(Car car, int index) {
-        int userChoice = methods.getBoundIntInput(
-                "Please make your choice.",
-                "Wrong input, please try again.",
-                1, 2);
-        switch (userChoice) {
-            case 1:
-                try {
-                    car.damageWheel(index, inputWheelDamage() / 100);
-                    if (car.getCurrentSpeed() > car.calculateCurrentMaxSpeed())
-                        car.setCurrentSpeed(car.calculateCurrentMaxSpeed());
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                    selectWheelAction(car, index);
-                }
+        if (car.getWheelsQuantity() != 0) {
+            int userChoice = methods.getBoundIntInput(
+                    "Please make your choice.",
+                    "Wrong input, please try again.",
+                    1, 2);
+            switch (userChoice) {
+                case 1:
+                    try {
+                        car.damageWheel(index, inputWheelDamage() / 100);
+                        if (car.getCurrentSpeed() > car.calculateCurrentMaxSpeed())
+                            car.setCurrentSpeed(car.calculateCurrentMaxSpeed());
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        selectWheelAction(car, index);
+                    }
 
-                break;
-            case 2:
-                try {
-                    car.renewWheel(index);
-                } catch (IndexOutOfBoundsException e) {
-                    System.out.println(e.getMessage());
-                    selectWheelAction(car, index);
-                }
-                break;
-        }
+                    break;
+                case 2:
+                    try {
+                        car.renewWheel(index);
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println(e.getMessage());
+                        selectWheelAction(car, index);
+                    }
+                    break;
+            }
+        } else System.out.println("There are no wheels!");
     }
 
     private static double inputWheelDamage() {
@@ -238,7 +242,8 @@ public class CarActions {
     }
 
     private static void viewWheelsState(Car car) {
-        car.printWheelsState();
+        if (car.getWheelsQuantity() != 0) car.printWheelsState();
+        else System.out.println("There are no wheels!");
     }
 
     private static void addWheels(Car car) {

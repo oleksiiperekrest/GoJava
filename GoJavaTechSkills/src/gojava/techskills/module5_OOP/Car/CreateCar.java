@@ -3,6 +3,7 @@ package gojava.techskills.module5_OOP.Car;
 import gojava.techskills.methods;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class CreateCar {
 
@@ -51,29 +52,32 @@ public class CreateCar {
     }
 
     private static Car createCarWithYear() {
-        return new Car(inputCarYear());
+        return new Car(inputCarDate());
     }
 
     private static Car createCarWithAttributes() {
-        return new Car(inputCarYear(), inputEngineType(), inputMaxSpeed(), inputCurrentSpeed(), inputAccelerationTime(),
+        return new Car(inputCarDate(), inputEngineType(), inputMaxSpeed(), inputCurrentSpeed(), inputAccelerationTime(),
                 inputPassengersCapacity(), inputPassengersCurrent());
     }
 
     private static Car createCarWithAttributesAndWheels() {
-        return new Car(inputCarYear(), inputEngineType(), inputMaxSpeed(), inputCurrentSpeed(), inputAccelerationTime(),
+        return new Car(inputCarDate(), inputEngineType(), inputMaxSpeed(), inputCurrentSpeed(), inputAccelerationTime(),
                 inputPassengersCapacity(), inputPassengersCurrent(), inputWheelsQuantity(), inputDoorsQuantity());
     }
 
-    private static int inputCarYear() {
+    private static Calendar inputCarDate() {
         int firstCarYear = 1808; //(Wikipedia) In 1808 François Isaac de Rivaz designed
         // the first car powered by an internal combustion engine fueled by hydrogen.
 
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int day = methods.getBoundIntInput("Enter a day of production.", 1, 31);
+        int month = methods.getBoundIntInput("Enter a month of production.", 1, 12);
+        int year = methods.getBoundIntInput("Enter a year of production (from " + firstCarYear
+                 + " to " + currentYear + ").", firstCarYear, currentYear );
+        Calendar cal = Calendar.getInstance();
 
-        return methods.getBoundIntInput(
-                "Enter a year of car's production.",
-                "Please enter a year between " + firstCarYear + " and " + currentYear + ".",
-                firstCarYear, currentYear);
+        cal.set(year, month - 1 , day);
+        return cal;
     }
 
     private static String inputEngineType() {
