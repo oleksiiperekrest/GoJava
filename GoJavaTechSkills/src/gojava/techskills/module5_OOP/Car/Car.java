@@ -235,7 +235,7 @@ public class Car {
     }
 
 
-    public int getWheelsQuantity() {
+    int getWheelsQuantity() {
         return wheels.length;
     }
 
@@ -243,7 +243,7 @@ public class Car {
         return wheels[index];
     }
 
-    public void removeAllWheels() {
+    void removeAllWheels() {
         wheels = new CarWheel[0];
     }
 
