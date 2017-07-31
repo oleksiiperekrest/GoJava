@@ -26,7 +26,7 @@ public class DrawingASnowman {
         DrawingASnowman.HEIGHT = HEIGHT;
     }
 
-    private static Paint randomPaint() {
+    public static Paint randomPaint() {
         Random random = new Random();
         Color color = new Color(random.nextDouble(),
                 random.nextDouble(),
