@@ -97,14 +97,9 @@ public class Homework5 {
 
     public static void main(String[] args) {
 
-        Car car = createCar();
+        Car car = CreateCar.createCar();
         CarActions.carActions(car);
     }
-
-    private static Car createCar() {
-        return CreateCar.createCar();
-    }
-
 }
 
 
