@@ -2,6 +2,7 @@ package gojava.techskills.module6_JavaFX;
 
 import gojava.techskills.module6_JavaFX.Snowman.DrawingASnowman;
 import gojava.techskills.module6_JavaFX.Snowman.SnowmanUI;
+import gojava.techskills.module6_JavaFX.Star.Star;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -19,7 +20,8 @@ public class Program extends Application {
         final int WIDTH = 640;
         final int HEIGHT = 480;
 
-        snowman(WIDTH, HEIGHT, canvas);
+//        snowman(WIDTH, HEIGHT, canvas);
+        star(WIDTH/2, HEIGHT/2, HEIGHT/2-20, canvas, Math.PI/5*3.5);
 
         Scene scene = new Scene(canvas);
         primaryStage.setScene(scene);
@@ -35,5 +37,10 @@ public class Program extends Application {
 
         SnowmanUI.drawInterface(canvas);
         SnowmanUI.drawSnowman(canvas);
+    }
+
+    private void star(double centerX, double centerY, double radius, Pane canvas, double offsetAngle) {
+        Star.drawLines(canvas, centerX, centerY, radius, offsetAngle);
+
     }
 }
