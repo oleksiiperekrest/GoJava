@@ -5,7 +5,7 @@ public class Point {
     private double x, y;
     static final Point ZERO = new Point(0,0);
 
-    Point(double x, double y) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
