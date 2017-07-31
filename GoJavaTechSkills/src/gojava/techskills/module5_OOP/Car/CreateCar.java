@@ -3,7 +3,6 @@ package gojava.techskills.module5_OOP.Car;
 import gojava.techskills.methods;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class CreateCar {
 
