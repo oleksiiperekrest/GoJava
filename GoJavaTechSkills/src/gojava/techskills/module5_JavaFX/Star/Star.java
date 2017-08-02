@@ -1,6 +1,6 @@
-package gojava.techskills.module6_JavaFX.Star;
+package gojava.techskills.module5_JavaFX.Star;
 
-import gojava.techskills.module6_JavaFX.Snowman.DrawingASnowman;
+import gojava.techskills.module5_JavaFX.Snowman.DrawingASnowman;
 import gojava.techskills.offline4.Point;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;

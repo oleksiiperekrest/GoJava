@@ -1,4 +1,4 @@
-package gojava.techskills.module6_JavaFX.Star;
+package gojava.techskills.module5_JavaFX.Star;
 
 import gojava.techskills.methods;
 import javafx.scene.layout.Pane;

@@ -1,4 +1,4 @@
-package gojava.techskills.module5_OOP.Car;
+package gojava.techskills.module5_encapsulation.Car;
 
 import gojava.techskills.methods;
 

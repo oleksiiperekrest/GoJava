@@ -1,4 +1,4 @@
-package gojava.techskills.module6_JavaFX.Snowman;
+package gojava.techskills.module5_JavaFX.Snowman;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;

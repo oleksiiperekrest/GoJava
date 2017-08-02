@@ -1,4 +1,4 @@
-package gojava.techskills.module5_OOP.Car;
+package gojava.techskills.module5_encapsulation.Car;
 
 /*
 Класс CarParts.
@@ -40,11 +40,10 @@ package gojava.techskills.module5_OOP.Car;
 и наличия водителя)
 */
 
-import gojava.techskills.module5_OOP.Car.CarParts.CarDoor;
-import gojava.techskills.module5_OOP.Car.CarParts.CarWheel;
+import gojava.techskills.module5_encapsulation.Car.CarParts.CarDoor;
+import gojava.techskills.module5_encapsulation.Car.CarParts.CarWheel;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class Car {
 

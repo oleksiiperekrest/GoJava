@@ -1,4 +1,4 @@
-package gojava.techskills.module5_OOP.Car.CarParts;
+package gojava.techskills.module5_encapsulation.Car.CarParts;
 
 /*
 Класс CarDoor

@@ -1,4 +1,4 @@
-package gojava.techskills.module6_JavaFX.Snowman;
+package gojava.techskills.module5_JavaFX.Snowman;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

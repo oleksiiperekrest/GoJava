@@ -1,6 +1,5 @@
 package gojava.techskills.offline4;
 
-import gojava.techskills.module6_JavaFX.Program;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,8 +7,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-
-import java.util.Random;
 
 
 public class DrawPoint extends Application {

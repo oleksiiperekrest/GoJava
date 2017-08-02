@@ -1,4 +1,4 @@
-package gojava.techskills.module5_OOP;
+package gojava.techskills.module5_encapsulation;
 
 /*
 Задача 1
@@ -89,9 +89,9 @@ package gojava.techskills.module5_OOP;
 Кол-во различных действий = кол-ву функций в ДЗ.
 */
 
-import gojava.techskills.module5_OOP.Car.Car;
-import gojava.techskills.module5_OOP.Car.CarActions;
-import gojava.techskills.module5_OOP.Car.CreateCar;
+import gojava.techskills.module5_encapsulation.Car.Car;
+import gojava.techskills.module5_encapsulation.Car.CarActions;
+import gojava.techskills.module5_encapsulation.Car.CreateCar;
 
 public class Homework5 {
 
