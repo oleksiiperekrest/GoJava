@@ -36,6 +36,7 @@ public class SnowmanUI {
     }
 
     public static void drawSnowman(Pane canvas) {
+        DrawingASnowman.setWIDTH(WIDTH);
         DrawingASnowman.drawSnowman(readCount(countField, canvas, error), canvas,
                 readRadius(minRadius, canvas, error),
                 readRadius(maxRadius, canvas, error));

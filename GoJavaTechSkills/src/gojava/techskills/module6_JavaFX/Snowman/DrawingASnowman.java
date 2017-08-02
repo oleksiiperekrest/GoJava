@@ -11,7 +11,7 @@ import java.util.Random;
 public class DrawingASnowman {
 
 
-    private static int WIDTH;
+    private static int WIDTH; // let it be
     private static int HEIGHT;
     private static Random random = new Random();
     private static int xAxis;

@@ -1,5 +1,6 @@
 package gojava.techskills.module6_JavaFX.Star;
 
+import gojava.techskills.module6_JavaFX.Snowman.DrawingASnowman;
 import gojava.techskills.offline4.Point;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
@@ -12,14 +13,14 @@ public class Star {
     private static double radius;
     private static double radiusRatio = Math.cos(Math.PI/ vertices * skip) / Math.cos(Math.PI/ vertices * (skip - 1));
 
-    public static void setCenter(double x, double y) {
+    private static void setCenter(double x, double y) {
         center = new Point(x, y);
     }
 
     public static void setVertices(int vertices) {
     }
 
-    public static void setRadius(double rad) {
+    private static void setRadius(double rad) {
         radius = rad;
     }
 
@@ -47,14 +48,14 @@ public class Star {
         return lines;
     }
 
-    public static void drawLines(Pane canvas, double centerX, double centerY, double radius, double offsetAngle) {
+    static void drawLines(Pane canvas, double centerX, double centerY, double radius, double offsetAngle) {
         setCenter(centerX, centerY);
         setRadius(radius);
         Line[] lines = findLines(findPoints(new Point(centerX,centerY), radius, offsetAngle));
 
         for (int i = 0; i < lines.length; i++) {
-            lines[i].setStrokeWidth(4);
-//            lines[i].setStroke(DrawingASnowman.randomPaint());
+            lines[i].setStrokeWidth((int)radius/30+1); //for better looking: the bigger the star the thicker the lines
+            lines[i].setStroke(DrawingASnowman.randomPaint()); //do i really need it though?
             canvas.getChildren().addAll(lines[i]);
         }
     }
