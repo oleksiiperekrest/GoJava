@@ -1,22 +1,18 @@
 package gojava.techskills.module5_inheritance.Player;
 
 
-public abstract class Player {
+public abstract class SuperPlayer {
 
+    final private double price;
 
-    final protected double price;
-
-    public Player(double price) {
+    public SuperPlayer(double price) {
         this.price = price;
     }
-
-
 
     public double getPrice() {
         return this.price;
     }
 
     public abstract void playSong();
-    public abstract void playAllSongs();
 
 }

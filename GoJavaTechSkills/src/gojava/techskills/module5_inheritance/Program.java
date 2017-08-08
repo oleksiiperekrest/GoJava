@@ -1,5 +1,8 @@
 package gojava.techskills.module5_inheritance;
 
+/*
+https://docs.google.com/document/d/18KaJ9dRQm9cqfa2_bwt9fe1yFgxzwLapGIIKwti7COU/edit#
+ */
 
 public class Program {
 

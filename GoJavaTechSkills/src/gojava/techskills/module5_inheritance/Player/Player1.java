@@ -5,7 +5,7 @@ package gojava.techskills.module5_inheritance.Player;
 Имеет только 1 песню (нельзя объявить эту переменную в классе этого плеера)
 playSong Может проиграть песню.
  */
-public class Player1 extends Player {
+public class Player1 extends SuperPlayer {
 
 
     public Player1(double price) {
