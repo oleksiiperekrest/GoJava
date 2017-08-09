@@ -7,17 +7,7 @@ playSong Может проиграть песню.
  */
 public class Player1 extends SuperPlayer {
 
-
     public Player1(double price) {
         super(price);
     }
-
-
-
-    public void playSong() {
-//        System.out.println("Now playing: " + song1);
-    }
-
-    public void playAllSongs(){}
-
 }
