@@ -105,6 +105,7 @@ class Homework4 {
             if (!methods.yesNo("\nDo you wish to repeat?")) repeat = false;
         }
         while (repeat);
+
     }
 
 }
