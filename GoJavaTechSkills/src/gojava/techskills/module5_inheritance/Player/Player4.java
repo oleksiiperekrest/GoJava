@@ -14,6 +14,9 @@ public class Player4 extends PlayerSongList {
         super(price);
     }
 
-
-
+    @Override
+    public void playSong() {
+        setSong(playlist[playlist.length-1]);
+        super.playSong();
+    }
 }

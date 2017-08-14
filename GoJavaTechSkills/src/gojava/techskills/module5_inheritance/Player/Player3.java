@@ -12,4 +12,10 @@ public class Player3 extends PlayerSongList {
     public Player3(double price) {
         super(price);
     }
+
+    @Override
+    public void playSong() {
+        setSong(playlist[0]);
+        super.playSong();
+    }
 }
