@@ -52,7 +52,7 @@ public class Company {
 
     public void writeToFile() {
         try {
-            FileWriter writer = new FileWriter("CompanyFiles/workers.txt");
+            FileWriter writer = new FileWriter("Files/CompanyFiles/workers.txt");
             writer.write(workers.length + "\n");
             for (Worker worker : workers) {
 
