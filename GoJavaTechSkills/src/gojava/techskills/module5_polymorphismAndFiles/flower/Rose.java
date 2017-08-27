@@ -2,7 +2,7 @@ package gojava.techskills.module5_polymorphismAndFiles.flower;
 
 public class Rose extends Flower {
 
-    public String toString() {
-        return "Rose";
+    public Rose() {
+        this.setPrice(100);
     }
 }
