@@ -1,0 +1,8 @@
+{
+	"title": "names and ages",
+	"data": {
+		"Tom": "29",
+		"Mark": "50",
+		"Trevis": "11"
+	}
+}

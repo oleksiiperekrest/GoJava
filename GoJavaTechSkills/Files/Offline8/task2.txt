@@ -1,0 +1,51 @@
+{
+	"fruitStore": {
+		"name": "Ron's Store",
+		"address": "best street",
+		"products": [{
+				"name": "banana",
+				"price": 100,
+				"weight": 15
+			},
+			{
+				"name": "apple",
+				"price": 10,
+				"weight": 10
+			}
+		]
+	},
+
+	"techStore": {
+		"name": "Robert's Store",
+		"address": "best street 2",
+		"products": [{
+				"name": "iPhone",
+				"price": 10000,
+				"description": "It's a great phone",
+				"guaranteeDuration": 30
+			},
+			{
+				"name": "Laptop",
+				"price": 13000,
+				"description": "Best laptop ever",
+				"guaranteeDuration": 90
+			}
+		]
+	},
+
+	"animalStore": {
+		"name": "Your pet",
+		"address": "best street 3",
+		"products": [{
+				"name": "Gold fish",
+				"price": 100000,
+				"age": 1
+			},
+			{
+				"name": "Rabbit",
+				"price": 130,
+				"age": 2
+			}
+		]
+	}
+}
