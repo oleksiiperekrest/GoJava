@@ -29,14 +29,20 @@ public class Homework8 {
         System.out.println("Random bouquet:");
         flowerStore.printBouquet(randomBouquet);
 
-        System.out.println("Saving random bouquet to file...");
+        System.out.println("Saving random bouquet to a file...");
         FlowersSaver.save(filename, randomBouquet);
         System.out.println("Saved to " + filename);
         System.out.println();
 
+        System.out.println("Press Enter to read bouquet from a file.\n" +
+                "(At this point something may happen to the file)");
+        methods.readEmptyLine();
+
         System.out.println("Reading a bouquet from " + filename + "...");
         Flower[] restoredBouquet = FlowersLoader.load(filename);
-        System.out.println("Restored bouquet:");
-        flowerStore.printBouquet(restoredBouquet);
+        if (restoredBouquet != null) {
+            System.out.println("Restored bouquet:");
+            flowerStore.printBouquet(restoredBouquet);
+        }
     }
 }

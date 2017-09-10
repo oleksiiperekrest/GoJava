@@ -45,79 +45,116 @@ public class FlowerStore {
             else bouquet[i] = new Tulip();
         }
 
-        sellInfo(bouquet);
+        sell(bouquet);
     }
+
+
 
     public void sellSequence(int roses, int chamomiles, int tulips) {
         int size = roses + chamomiles + tulips;
         Flower[] bouquet = new Flower[size];
         String last = "Tulip";
+        Flower nextFlower = new Rose();
 
-        for (int i = 0; i < bouquet.length; i++) {
-            if (last.equals("Tulip")) {
-                if (roses > 0) {
-                    bouquet[i] = new Rose();
-                    roses--;
-                    last = "Rose";
-                    continue;
-                }
-                if (chamomiles > 0) {
-                    bouquet[i] = new Chamomile();
-                    chamomiles--;
-                    last = "Chamomile";
-                    continue;
-                }
-                if (tulips > 0) {
-                    bouquet[i] = new Tulip();
-                    tulips--;
-                    last = "Tulip";
-                    continue;
-                }
-
+        for (int i = 0; i < size; i++) {
+            switch (last) {
+                case "Tulip" :
+                    nextFlower = addAfterTulip(roses, chamomiles, tulips);
+                    break;
+                case "Rose" :
+                    nextFlower = addAfterRose(roses, chamomiles, tulips);
+                    break;
+                case "Chamomile" :
+                    nextFlower = addAfterChamomile(roses, chamomiles, tulips);
             }
-            if (last.equals("Rose")) {
-                if (chamomiles > 0) {
-                    bouquet[i] = new Chamomile();
-                    chamomiles--;
-                    last = "Chamomile";
-                    continue;
-                }
-                if (tulips > 0) {
-                    bouquet[i] = new Tulip();
-                    tulips--;
-                    last = "Tulip";
-                    continue;
-                }
-                if (roses > 0) {
-                    bouquet[i] = new Rose();
-                    roses--;
-                    last = "Rose";
-
-                    continue;
-                }
+            if (nextFlower instanceof Rose) {
+                roses--;
+                last = "Rose";
             }
-            if (last.equals("Chamomile")) {
-                if (tulips > 0) {
-                    bouquet[i] = new Tulip();
-                    tulips--;
-                    last = "Tulip";
-                    continue;
-                }
-                if (roses > 0) {
-                    bouquet[i] = new Rose();
-                    roses--;
-                    last = "Rose";
-                    continue;
-                }
-                if (chamomiles > 0) {
-                    bouquet[i] = new Chamomile();
-                    chamomiles--;
-                    last = "Chamomile";
-                }
+            else if (nextFlower instanceof Chamomile) {
+                chamomiles--;
+                last = "Chamomile";
             }
+            else if (nextFlower instanceof Tulip) {
+                tulips--;
+                last = "Tulip";
+            }
+            bouquet[i] = nextFlower;
         }
-        sellInfo(bouquet);
+        sell(bouquet);
     }
+
+/* Old variant of sellSequence*/
+//    public void sellSequence(int roses, int chamomiles, int tulips) {
+//        int size = roses + chamomiles + tulips;
+//        Flower[] bouquet = new Flower[size];
+//        String last = "Tulip";
+//
+//        for (int i = 0; i < bouquet.length; i++) {
+//            if (last.equals("Tulip")) {
+//                if (roses > 0) {
+//                    bouquet[i] = new Rose();
+//                    roses--;
+//                    last = "Rose";
+//                    continue;
+//                }
+//                if (chamomiles > 0) {
+//                    bouquet[i] = new Chamomile();
+//                    chamomiles--;
+//                    last = "Chamomile";
+//                    continue;
+//                }
+//                if (tulips > 0) {
+//                    bouquet[i] = new Tulip();
+//                    tulips--;
+//                    last = "Tulip";
+//                    continue;
+//                }
+//            }
+//
+//            if (last.equals("Rose")) {
+//                if (chamomiles > 0) {
+//                    bouquet[i] = new Chamomile();
+//                    chamomiles--;
+//                    last = "Chamomile";
+//                    continue;
+//                }
+//                if (tulips > 0) {
+//                    bouquet[i] = new Tulip();
+//                    tulips--;
+//                    last = "Tulip";
+//                    continue;
+//                }
+//                if (roses > 0) {
+//                    bouquet[i] = new Rose();
+//                    roses--;
+//                    last = "Rose";
+//                    continue;
+//                }
+//            }
+//
+//            if (last.equals("Chamomile")) {
+//                if (tulips > 0) {
+//                    bouquet[i] = new Tulip();
+//                    tulips--;
+//                    last = "Tulip";
+//                    continue;
+//                }
+//                if (roses > 0) {
+//                    bouquet[i] = new Rose();
+//                    roses--;
+//                    last = "Rose";
+//                    continue;
+//                }
+//                if (chamomiles > 0) {
+//                    bouquet[i] = new Chamomile();
+//                    chamomiles--;
+//                    last = "Chamomile";
+//                }
+//            }
+//        }
+//        sellInfo(bouquet);
+//    }
 
     public Flower[] randomBouquet(int flowersNumber) {
         int typesNumber = 3;
@@ -141,7 +178,6 @@ public class FlowerStore {
         return bouquet;
     }
 
-
     private double countPrice(Flower[] bouquet) {
         double price = 0;
         for (Flower flower : bouquet) {
@@ -151,10 +187,12 @@ public class FlowerStore {
     }
 
     public void printBouquet(Flower[] bouquet) {
-        for (int i = 0; i < (bouquet.length - 1); i++) {
-            System.out.print(checkFlowerType(bouquet[i]) + ", ");
+        if(bouquet.length > 0) {
+            for (int i = 0; i < (bouquet.length - 1); i++) {
+                System.out.print(checkFlowerType(bouquet[i]) + ", ");
+            }
+            System.out.println(checkFlowerType(bouquet[(bouquet.length - 1)]) + ".");
         }
-        System.out.println(checkFlowerType(bouquet[(bouquet.length - 1)]) + ".");
     }
 
     private String checkFlowerType(Flower flower) {
@@ -163,14 +201,55 @@ public class FlowerStore {
         else if (flower instanceof Tulip) return "Tulip";
         else return "Flower";
     }
-
-    private void sellInfo(Flower[] bouquet) {
-        printBouquet(bouquet);
+    private void sell(Flower[] bouquet) {
         double bouquetPrice = countPrice(bouquet);
         wallet += bouquetPrice;
+        sellInfo(bouquet, bouquetPrice);
+    }
+
+    private void sellInfo(Flower[] bouquet, double bouquetPrice) {
+        printBouquet(bouquet);
         System.out.println("Bouquet price: " + bouquetPrice);
         System.out.println("Store wallet balance: " + wallet);
         System.out.println();
     }
 
+    private Flower addAfterRose(int roses, int chamomiles, int tulips) {
+        if (chamomiles > 0) {
+            return new Chamomile();
+        }
+        else if (tulips > 0) {
+            return new Tulip();
+        }
+        else if (roses > 0) {
+            return new Rose();
+        }
+        else return null;
+    }
+
+    private Flower addAfterTulip(int roses, int chamomiles, int tulips) {
+        if (roses > 0) {
+            return new Rose();
+        }
+        else if (chamomiles > 0) {
+            return new Chamomile();
+        }
+        else if (tulips > 0) {
+            return new Tulip();
+        }
+        else return null;
+    }
+
+    private Flower addAfterChamomile(int roses, int chamomiles, int tulips) {
+        if (tulips > 0) {
+            return new Tulip();
+        }
+        else if (roses > 0) {
+            return new Rose();
+        }
+        else if (chamomiles > 0) {
+            return new Chamomile();
+        }
+        else return null;
+    }
 }

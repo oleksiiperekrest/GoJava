@@ -16,25 +16,33 @@ public abstract class FlowersLoader {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            Flower[] bouquet = new Flower[Integer.parseInt(bufferedReader.readLine())];
-            for (int i = 0; i < bouquet.length; i++) {
-                String nextLine = bufferedReader.readLine();
-                switch (nextLine) {
-                    case "Rose" :
-                        bouquet[i] = new Rose();
-                        break;
-                    case "Chamomile" :
-                        bouquet[i] = new Chamomile();
-                        break;
-                    case "Tulip" :
-                        bouquet[i] = new Tulip();
-                        break;
-                }
+            String nextLine = bufferedReader.readLine();
+            if (nextLine.equals("-1")) {
+                System.out.println("Could not load. " + file + " is corrupted. Please rewrite.");
+                System.out.println(bufferedReader.readLine());
             }
-            return bouquet;
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            else {
+
+                Flower[] bouquet = new Flower[Integer.parseInt(nextLine)];
+                for (int i = 0; i < bouquet.length; i++) {
+                    nextLine = bufferedReader.readLine();
+                    switch (nextLine) {
+                        case "Rose":
+                            bouquet[i] = new Rose();
+                            break;
+                        case "Chamomile":
+                            bouquet[i] = new Chamomile();
+                            break;
+                        case "Tulip":
+                            bouquet[i] = new Tulip();
+                            break;
+                    }
+                }
+                return bouquet;
+            }
+        } catch (Exception e) {
+            System.out.println("Could not load the file.");
+            FlowersSaver.save(file, e);
         }
         return null;
     }

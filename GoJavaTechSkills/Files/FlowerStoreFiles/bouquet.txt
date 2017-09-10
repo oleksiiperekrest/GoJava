@@ -1,18 +1,2 @@
-17
-Chamomile
-Rose
-Chamomile
-Rose
-Chamomile
-Tulip
-Tulip
-Rose
-Chamomile
-Rose
-Tulip
-Chamomile
-Chamomile
-Rose
-Chamomile
-Chamomile
-Tulip
+-1
+java.lang.NumberFormatException: For input string: ""

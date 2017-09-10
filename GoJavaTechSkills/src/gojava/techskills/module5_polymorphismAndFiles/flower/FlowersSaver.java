@@ -26,4 +26,15 @@ public abstract class FlowersSaver {
             e.printStackTrace();
         }
     }
+
+    public static void save(String file, Exception e) {
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write("-1\n");
+            fileWriter.write(e.toString());
+            fileWriter.flush();
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }
 }
