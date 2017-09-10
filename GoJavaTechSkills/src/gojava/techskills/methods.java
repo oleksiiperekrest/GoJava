@@ -12,6 +12,10 @@ public class methods {
         return input.nextLine();
     }
 
+    public static void readEmptyLine() {
+        Scanner input = new Scanner(System.in);
+        input.nextLine();
+    }
 
     /**
      * @return An integer input from the user.
