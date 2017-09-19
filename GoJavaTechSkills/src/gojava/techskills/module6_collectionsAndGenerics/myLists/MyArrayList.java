@@ -1,10 +1,6 @@
 package gojava.techskills.module6_collectionsAndGenerics.myLists;
 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 /**
  * Задание 1 - ArrayList
@@ -17,132 +13,66 @@ import java.util.ListIterator;
  size() возвращает размер коллекции
  get(int index) возвращает элемент под индексом
  */
-public class MyArrayList<T> implements List {
+public class MyArrayList<T> {
 
-    T[] array;
+    private T[] array;
 
     public MyArrayList(T[] array) {
         this.array = array;
     }
 
-    @Override
-    public int size() {
-        int size = 0;
-        for (T t : array) {
-            if (t != null) size++;
+    public void add(T value) {
+        Object[] newArray = new Object[array.length+1];
+        System.arraycopy(array, 0 , newArray, 0, array.length);
+        newArray[newArray.length-1] = value;
+        array = (T[]) newArray;
+    }
+
+    public void remove(int index) {
+        Object[] newArray = new Object[array.length-1];
+        if (index == 0) {
+            System.arraycopy(array, 1, newArray, 0, newArray.length);
         }
-        return size;
+        else {
+            System.arraycopy(array, 0, newArray, 0, index);
+            System.arraycopy(array, (index+1), newArray, index, (array.length-index-1));
+        }
+        array = (T[]) newArray;
     }
 
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        return false;
-    }
-
-    @Override
-    public Iterator iterator() {
-        return null;
-    }
-
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @Override
-    public Object[] toArray(Object[] a) {
-        return new Object[0];
-    }
-
-    @Override
-    public boolean add(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection c) {
-        return false;
-    }
-
-    @Override
     public void clear() {
-        for (int i = 0; i < size(); i++) {
-            array[i] = null;
-        }
+        array = (T[]) new Object[0];
     }
 
-    @Override
-    public Object get(int index) {
+    public int size() {
+        return array.length;
+    }
+
+    public T get(int index) {
         return array[index];
     }
 
     @Override
-    public Object set(int index, Object element) {
-        return null;
+    public String toString() {
+        if (array.length == 0) return "";
+        StringBuilder string = new StringBuilder();
+        for (int i = 0; i < array.length-1; i++) {
+
+            string.append(array[i] + " ");
+        }
+        string.append(array[array.length-1]);
+        return string.toString();
     }
 
-    @Override
-    public void add(int index, Object element) {
-
-    }
-
-    @Override
-    public Object remove(int index) {
-        return null;
-    }
-
-    @Override
-    public int indexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public ListIterator listIterator() {
-        return null;
-    }
-
-    @Override
-    public ListIterator listIterator(int index) {
-        return null;
-    }
-
-    @Override
-    public List subList(int fromIndex, int toIndex) {
-        return null;
+    public void show() {
+        if (array.length == 0) {
+            System.err.println("List is empty");
+        }
+        else {
+            for (int i = 0; i < array.length - 1; i++) {
+                System.out.print(array[i] + " ");
+            }
+            System.out.println(array[array.length - 1]);
+        }
     }
 }
