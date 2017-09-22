@@ -1,9 +1,9 @@
-package youtube.entities;
+package youtube.entities.commentThreads;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class VideosSnippet {
+public class CommentThreadsItems {
 
-    public String title;
+    public String id;
 }

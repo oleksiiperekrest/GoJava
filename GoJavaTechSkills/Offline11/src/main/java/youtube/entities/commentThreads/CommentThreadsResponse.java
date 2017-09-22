@@ -1,11 +1,10 @@
-package youtube.entities;
+package youtube.entities.commentThreads;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CommentsResponse {
+public class CommentThreadsResponse {
 
-    public List<CommentsItems> items;
-
+    public List<CommentThreadsItems> items;
 }

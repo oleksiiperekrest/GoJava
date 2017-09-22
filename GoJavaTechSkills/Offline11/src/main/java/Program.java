@@ -3,10 +3,10 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import youtube.entities.CommentThreadsResponse;
-import youtube.entities.CommentsResponse;
-import youtube.entities.CommentTHreadsItems;
-import youtube.entities.VideosResponse;
+import youtube.entities.commentThreads.CommentThreadsResponse;
+import youtube.entities.comments.CommentsResponse;
+import youtube.entities.commentThreads.CommentThreadsItems;
+import youtube.entities.videos.VideosResponse;
 
 import java.io.IOException;
 
@@ -62,7 +62,7 @@ public class Program {
             commentThreadsResponse = commentThreadsResponseHttpResponse.getBody();
 
 
-            for (CommentTHreadsItems item : commentThreadsResponse.items) {
+            for (CommentThreadsItems item : commentThreadsResponse.items) {
                 HttpResponse<CommentsResponse> commentsResponseHttpResponse =
                         Unirest.get("https://www.googleapis.com/youtube/v3/comments")
                                 .queryString("part", "id,snippet")

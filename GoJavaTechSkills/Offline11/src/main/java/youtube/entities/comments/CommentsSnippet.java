@@ -1,4 +1,4 @@
-package youtube.entities;
+package youtube.entities.comments;
 
 /**
  * Должно быть выведено:
