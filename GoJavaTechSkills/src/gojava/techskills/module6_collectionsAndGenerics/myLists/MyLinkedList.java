@@ -3,7 +3,7 @@ package gojava.techskills.module6_collectionsAndGenerics.myLists;
 /**
  * Задание 2 - LinkedList
  * Написать свой класс MyLinkedList как аналог классу LinkedList.
- * Нельзя использовать массив. Каждый элемент должен быть отдельным объектом-посредником(Node - нода)
+ * Нельзя использовать массив. Каждый элемент должен быть отдельным объектом-посредником(LLNode - нода)
  * который хранит ссылку на прошлый и следующий элемент коллекции(двусвязный список).
  * Методы
  * add(T value) добавляет элемент в конец
@@ -15,11 +15,11 @@ package gojava.techskills.module6_collectionsAndGenerics.myLists;
 
 public class MyLinkedList<T> {
 
-    private Node<T> first;
-    private Node<T> last;
+    private LLNode<T> first;
+    private LLNode<T> last;
 
     public MyLinkedList(T[] items) {
-        first = new Node<>(items[0], null, null);
+        first = new LLNode<>(items[0], null, null);
         last = first;
 
         for (int i = 1; i < items.length; i++) {
@@ -29,10 +29,10 @@ public class MyLinkedList<T> {
 
     public void add(T item) {
         if (first.item == null) {
-            last = first = new Node<>(item, null, null);
+            last = first = new LLNode<>(item, null, null);
 
         } else {
-            Node<T> node = new Node<>(item, null, last);
+            LLNode<T> node = new LLNode<>(item, null, last);
             last.next = node;
             last = node;
         }
@@ -43,9 +43,9 @@ public class MyLinkedList<T> {
             clear();
             return;
         }
-        Node<T> node = getNode(index);
-        final Node<T> next = node.next;
-        final Node<T> prev = node.prev;
+        LLNode<T> node = getNode(index);
+        final LLNode<T> next = node.next;
+        final LLNode<T> prev = node.prev;
 
         if (prev == null) {
             first = next;
@@ -65,8 +65,8 @@ public class MyLinkedList<T> {
     }
 
     public void clear() {
-        for (Node<T> node = first; node != null; ) {
-            Node<T> next = node.next;
+        for (LLNode<T> node = first; node != null; ) {
+            LLNode<T> next = node.next;
             node.item = null;
             node.next = null;
             node.prev = null;
@@ -75,8 +75,8 @@ public class MyLinkedList<T> {
     }
 
     public void show() {
-        Node<T> iterator = first;
-        if (iterator.item == null) System.err.println("This collection is empty.");
+        LLNode<T> iterator = first;
+        if (iterator.item == null) System.out.println("This list is empty.");
         else {
             do {
                 System.out.print("" + iterator.item + " ");
@@ -87,7 +87,7 @@ public class MyLinkedList<T> {
     }
 
     public T get(int index) {
-        Node<T> iterator = first;
+        LLNode<T> iterator = first;
 
         if (iterator == null) return null;
         if (index == 0) return first.item;
@@ -99,8 +99,8 @@ public class MyLinkedList<T> {
         return iterator.item;
     }
 
-    private Node<T> getNode(int index) {
-        Node<T> iterator = first;
+    private LLNode<T> getNode(int index) {
+        LLNode<T> iterator = first;
 
         if (iterator == null) return null;
         if (index == 0) return first;
@@ -115,7 +115,7 @@ public class MyLinkedList<T> {
     public int size() {
         if (first.item == null) return 0;
         int size = 1;
-        Node<T> node = first;
+        LLNode<T> node = first;
         while (node.next != null) {
             size++;
             node = node.next;
@@ -127,7 +127,7 @@ public class MyLinkedList<T> {
     public String toString() {
         if (first.item == null) return "";
         StringBuilder stringBuilder = new StringBuilder();
-        Node<T> iterator = first;
+        LLNode<T> iterator = first;
 
         do {
             stringBuilder.append("" + iterator.item + " ");

@@ -66,7 +66,7 @@ public class MyArrayList<T> {
 
     public void show() {
         if (array.length == 0) {
-            System.err.println("List is empty");
+            System.out.println("This list is empty");
         }
         else {
             for (int i = 0; i < array.length - 1; i++) {

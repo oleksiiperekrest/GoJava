@@ -1,12 +1,12 @@
 package gojava.techskills.module6_collectionsAndGenerics.myLists;
 
-public class Node<T> {
+class LLNode<T> {
 
     T item;
-    Node<T> prev;
-    Node<T> next;
+    LLNode<T> prev;
+    LLNode<T> next;
 
-    Node(T item, Node<T> next, Node<T> prev) {
+    LLNode(T item, LLNode<T> next, LLNode<T> prev) {
         this.item = item;
         this.next = next;
         this.prev = prev;

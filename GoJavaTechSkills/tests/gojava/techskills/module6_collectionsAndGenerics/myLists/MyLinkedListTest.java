@@ -1,11 +1,6 @@
 package gojava.techskills.module6_collectionsAndGenerics.myLists;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +19,6 @@ class MyLinkedListTest {
         assertEquals("One Two Three", myLinkedListList.toString());
 
         myLinkedListList.remove(2);
-        myLinkedListList.show();
         assertEquals("One Two", myLinkedListList.toString());
         myLinkedListList.remove(0);
         assertEquals("Two", myLinkedListList.toString());
