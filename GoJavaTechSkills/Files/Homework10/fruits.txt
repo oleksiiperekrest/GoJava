@@ -1,0 +1,1 @@
+[{"date":"21/10/2017","fruitType":"Apple","price":14,"shelfLife":10},{"date":"17/10/2017","fruitType":"Orange","price":18,"shelfLife":15}]
